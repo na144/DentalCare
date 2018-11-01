@@ -38,5 +38,21 @@ namespace DentalCare
         {
 
         }
+
+        private void btnSearchPatientMakeBooking_Click(object sender, EventArgs e)
+        {
+            string bDate = txtSearchPatientMakeBooking.Text;
+
+        }
+
+        private void btnSubmitMakeBooking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchPatient_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
