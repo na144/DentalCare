@@ -8,3 +8,14 @@ C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\Dental
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CoreCompileInputs.cache
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.exe
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.pdb
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.exe.config
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.exe
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.pdb
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csprojAssemblyReference.cache
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Login.resources
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Properties.Resources.resources
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ReceptionistView.resources
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.GenerateResource.cache
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CoreCompileInputs.cache
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.exe
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.pdb
