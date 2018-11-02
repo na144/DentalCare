@@ -19,3 +19,4 @@ C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.GenerateRe
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CoreCompileInputs.cache
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.exe
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.pdb
+C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Login.resources

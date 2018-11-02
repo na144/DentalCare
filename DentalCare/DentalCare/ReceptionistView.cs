@@ -12,6 +12,9 @@ namespace DentalCare
 {
     public partial class ReceptionistView : Form
     {
+        DBconn dbConn = new DBconn();
+        DataTable dt;
+
         public ReceptionistView()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace DentalCare
         {
             pnlAddBooking.Visible = false;
             pnlPatientList.Visible = true;
+            fillPatientList();
             
         }
 
@@ -41,7 +45,7 @@ namespace DentalCare
 
         private void btnSearchPatientMakeBooking_Click(object sender, EventArgs e)
         {
-            string bDate = txtSearchPatientMakeBooking.Text;
+            
 
         }
 
@@ -52,7 +56,36 @@ namespace DentalCare
 
         private void btnSearchPatient_Click(object sender, EventArgs e)
         {
+            String bDate = txtSearchPatient.Text;
 
+            if (!String.IsNullOrEmpty(bDate))
+            {
+                filterPatientList(bDate);
+            }
+            else
+            {
+                fillPatientList();
+            }
+            
+
+        }
+
+        private void fillPatientList()
+        {
+            dt = new DataTable();
+            dt = dbConn.getPatientList();
+
+            dataGridViewPatientList.DataSource = dt;
+            
+        }
+
+        private void filterPatientList(string num)
+        {
+            dt = new DataTable();
+            dt = dbConn.getPatientByPersonalNumber(num);
+
+            //dataGridViewPatientList.Rows.Clear();
+            dataGridViewPatientList.DataSource = dt;
         }
     }
 }

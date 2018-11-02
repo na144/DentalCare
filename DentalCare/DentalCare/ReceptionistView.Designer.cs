@@ -66,17 +66,14 @@
             this.btnSearchPatient = new System.Windows.Forms.Button();
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnDateBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewPatientList = new System.Windows.Forms.DataGridView();
             this.pnlNavReceptionist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ReceptionistMenuStrip.SuspendLayout();
             this.pnlAddBooking.SuspendLayout();
             this.gbxMakeBooking.SuspendLayout();
             this.pnlPatientList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNavReceptionist
@@ -226,10 +223,10 @@
             this.pnlAddBooking.Controls.Add(this.btnSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.txtSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.label2);
-            this.pnlAddBooking.Location = new System.Drawing.Point(0, 142);
+            this.pnlAddBooking.Location = new System.Drawing.Point(498, 142);
             this.pnlAddBooking.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddBooking.Name = "pnlAddBooking";
-            this.pnlAddBooking.Size = new System.Drawing.Size(867, 482);
+            this.pnlAddBooking.Size = new System.Drawing.Size(369, 482);
             this.pnlAddBooking.TabIndex = 1;
             this.pnlAddBooking.Visible = false;
             // 
@@ -393,7 +390,7 @@
             this.pnlPatientList.Controls.Add(this.btnSearchPatient);
             this.pnlPatientList.Controls.Add(this.txtSearchPatient);
             this.pnlPatientList.Controls.Add(this.label7);
-            this.pnlPatientList.Controls.Add(this.dataGridView1);
+            this.pnlPatientList.Controls.Add(this.dataGridViewPatientList);
             this.pnlPatientList.Location = new System.Drawing.Point(0, 139);
             this.pnlPatientList.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPatientList.Name = "pnlPatientList";
@@ -453,42 +450,18 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Date of Birth:";
             // 
-            // dataGridView1
+            // dataGridViewPatientList
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnDateBirth,
-            this.ColumnFirstName,
-            this.ColumnLastName});
-            this.dataGridView1.Location = new System.Drawing.Point(87, 96);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(671, 352);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnDateBirth
-            // 
-            this.ColumnDateBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDateBirth.HeaderText = "Date of Birth";
-            this.ColumnDateBirth.Name = "ColumnDateBirth";
-            this.ColumnDateBirth.ReadOnly = true;
-            // 
-            // ColumnFirstName
-            // 
-            this.ColumnFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnFirstName.HeaderText = "First Name";
-            this.ColumnFirstName.Name = "ColumnFirstName";
-            this.ColumnFirstName.ReadOnly = true;
-            // 
-            // ColumnLastName
-            // 
-            this.ColumnLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnLastName.HeaderText = "Last Name";
-            this.ColumnLastName.Name = "ColumnLastName";
-            this.ColumnLastName.ReadOnly = true;
+            this.dataGridViewPatientList.AllowUserToAddRows = false;
+            this.dataGridViewPatientList.AllowUserToDeleteRows = false;
+            this.dataGridViewPatientList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPatientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPatientList.Location = new System.Drawing.Point(87, 96);
+            this.dataGridViewPatientList.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewPatientList.Name = "dataGridViewPatientList";
+            this.dataGridViewPatientList.ReadOnly = true;
+            this.dataGridViewPatientList.Size = new System.Drawing.Size(671, 352);
+            this.dataGridViewPatientList.TabIndex = 0;
             // 
             // ReceptionistView
             // 
@@ -514,7 +487,7 @@
             this.gbxMakeBooking.PerformLayout();
             this.pnlPatientList.ResumeLayout(false);
             this.pnlPatientList.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,10 +523,7 @@
         private System.Windows.Forms.Button btnSearchPatient;
         private System.Windows.Forms.TextBox txtSearchPatient;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLastName;
+        private System.Windows.Forms.DataGridView dataGridViewPatientList;
         private System.Windows.Forms.Button btnSubmitMakeBooking;
         private System.Windows.Forms.TextBox txtNotesMakeBooking;
         private System.Windows.Forms.Label label6;

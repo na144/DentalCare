@@ -11,6 +11,7 @@ namespace DentalCare
 {
     class DBconn
     {
+        DataSet ds;
         DataTable dt;
         SqlCommand myCommand;
         SqlDataAdapter adapter;
@@ -21,7 +22,9 @@ namespace DentalCare
         public DBconn()
         {
             myConnection = new SqlConnection();
-            myConnection.ConnectionString = "Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
+            myConnection.ConnectionString = 
+            ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
+            /* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
         }
 
         public DataTable Login(string username,string password,string role)
@@ -35,5 +38,46 @@ namespace DentalCare
             adapter.Fill(dt);
             return dt;
         }
+
+        public DataTable getPatientList()
+
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetPatientList";
+
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+            return dt;
+
+        }
+
+        public DataTable getPatientByPersonalNumber(string number)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+            parameter1 = new SqlParameter();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetPatientByPersonalNumber";
+            parameter1 = myCommand.Parameters.Add("@fldPersonalNumber", SqlDbType.VarChar);
+            parameter1.Value = number;
+
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+            return dt;
+
+        }
+
     }
 }
