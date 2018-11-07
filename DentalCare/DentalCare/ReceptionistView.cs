@@ -17,6 +17,7 @@ namespace DentalCare
 
         public ReceptionistView()
         {
+     
             InitializeComponent();
             pnlNavReceptionist.Visible = true;
             pnlAddBooking.Visible = false;
@@ -51,7 +52,25 @@ namespace DentalCare
 
         private void btnSubmitMakeBooking_Click(object sender, EventArgs e)
         {
-
+            Booking booking = new Booking();
+            booking.Dentist = txtDentist.Text;
+            booking.AppointmentDate = txtNotesMakeBooking.Text;
+            booking.ExaminationType = txtExaminationType.Text;
+          
+            booking.Additionalnotes = txtNotesMakeBooking.Text;
+            Boolean answer = dbConn.InsertNewBookingToDB(booking);
+            if (answer == true)
+            {
+                MessageBox.Show("New booking is inserted.");
+                cboxAppointmentDate.Items.Clear();
+                txtExaminationType.ResetText();
+                txtDentist.ResetText();
+                txtNotesMakeBooking.ResetText();
+            }
+            else
+            {
+                MessageBox.Show("Invalid input.");
+            }
         }
 
         private void btnSearchPatient_Click(object sender, EventArgs e)

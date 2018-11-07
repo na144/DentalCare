@@ -50,10 +50,10 @@
             this.txtNotesMakeBooking = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtExaminationType = new System.Windows.Forms.TextBox();
+            this.cboxAppointmentDate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDentist = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblFirstNameMakeBooking = new System.Windows.Forms.Label();
             this.lblLastNameMakeBooking = new System.Windows.Forms.Label();
@@ -159,13 +159,13 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // NewBookingStripMenuItem
             // 
             this.NewBookingStripMenuItem.Name = "NewBookingStripMenuItem";
-            this.NewBookingStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.NewBookingStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.NewBookingStripMenuItem.Text = "New booking";
             this.NewBookingStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
             // 
@@ -236,10 +236,10 @@
             this.gbxMakeBooking.Controls.Add(this.txtNotesMakeBooking);
             this.gbxMakeBooking.Controls.Add(this.label6);
             this.gbxMakeBooking.Controls.Add(this.label5);
-            this.gbxMakeBooking.Controls.Add(this.textBox2);
-            this.gbxMakeBooking.Controls.Add(this.comboBox1);
+            this.gbxMakeBooking.Controls.Add(this.txtExaminationType);
+            this.gbxMakeBooking.Controls.Add(this.cboxAppointmentDate);
             this.gbxMakeBooking.Controls.Add(this.label4);
-            this.gbxMakeBooking.Controls.Add(this.textBox1);
+            this.gbxMakeBooking.Controls.Add(this.txtDentist);
             this.gbxMakeBooking.Controls.Add(this.label3);
             this.gbxMakeBooking.Location = new System.Drawing.Point(36, 97);
             this.gbxMakeBooking.Margin = new System.Windows.Forms.Padding(4);
@@ -289,22 +289,23 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Examination Type";
             // 
-            // textBox2
+            // txtExaminationType
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 112);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 22);
-            this.textBox2.TabIndex = 10;
+            this.txtExaminationType.Location = new System.Drawing.Point(152, 112);
+            this.txtExaminationType.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExaminationType.Name = "txtExaminationType";
+            this.txtExaminationType.Size = new System.Drawing.Size(171, 22);
+            this.txtExaminationType.TabIndex = 10;
             // 
-            // comboBox1
+            // cboxAppointmentDate
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 68);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 9;
+            this.cboxAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cboxAppointmentDate.FormattingEnabled = true;
+            this.cboxAppointmentDate.Location = new System.Drawing.Point(152, 68);
+            this.cboxAppointmentDate.Margin = new System.Windows.Forms.Padding(4);
+            this.cboxAppointmentDate.Name = "cboxAppointmentDate";
+            this.cboxAppointmentDate.Size = new System.Drawing.Size(160, 24);
+            this.cboxAppointmentDate.TabIndex = 9;
             // 
             // label4
             // 
@@ -316,13 +317,13 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Appointment Date:";
             // 
-            // textBox1
+            // txtDentist
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 30);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 22);
-            this.textBox1.TabIndex = 7;
+            this.txtDentist.Location = new System.Drawing.Point(152, 30);
+            this.txtDentist.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDentist.Name = "txtDentist";
+            this.txtDentist.Size = new System.Drawing.Size(171, 22);
+            this.txtDentist.TabIndex = 7;
             // 
             // label3
             // 
@@ -509,7 +510,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Panel pnlAddBooking;
         private System.Windows.Forms.GroupBox gbxMakeBooking;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDentist;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblFirstNameMakeBooking;
         private System.Windows.Forms.Label lblLastNameMakeBooking;
@@ -528,8 +529,8 @@
         private System.Windows.Forms.TextBox txtNotesMakeBooking;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtExaminationType;
+        private System.Windows.Forms.ComboBox cboxAppointmentDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;

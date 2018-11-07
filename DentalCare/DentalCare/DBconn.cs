@@ -22,9 +22,12 @@ namespace DentalCare
         public DBconn()
         {
             myConnection = new SqlConnection();
-            myConnection.ConnectionString = 
+            myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
-            /* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
+            /* V- */
+            //"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
+            //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
+            /*"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";*/
         }
 
         public DataTable Login(string username,string password,string role)
@@ -79,5 +82,48 @@ namespace DentalCare
 
         }
 
+        public bool InsertNewBookingToDB(Booking booking)
+        {
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spRegNewBooking";
+
+            SqlParameter workparameter1 = new SqlParameter();
+            SqlParameter workparameter2 = new SqlParameter();
+            SqlParameter workparameter3 = new SqlParameter();
+            SqlParameter workparameter4 = new SqlParameter();
+            SqlParameter workparameter5 = new SqlParameter();
+
+            workparameter1 = myCommand.Parameters.Add("@AppointmentDate", SqlDbType.VarChar);
+            workparameter1.Value = booking.AppointmentDate;
+
+            workparameter2 = myCommand.Parameters.Add("@ExaminationType", SqlDbType.VarChar);
+            workparameter2.Value = booking.ExaminationType;
+
+            workparameter3 = myCommand.Parameters.Add("@Dentist", SqlDbType.VarChar);
+            workparameter3.Value = booking.Dentist;
+
+            workparameter4 = myCommand.Parameters.Add("@AdditionalNotes", SqlDbType.VarChar);
+            workparameter4.Value = booking.Additionalnotes;
+
+            workparameter5 = myCommand.Parameters.Add("@AntalRader", SqlDbType.Int);
+            workparameter5.Direction = ParameterDirection.Output;
+
+            myConnection.Open();
+            myCommand.ExecuteNonQuery();
+            int svar = Convert.ToInt32(workparameter5.SqlValue.ToString());
+            myConnection.Close();
+
+            if (svar == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
