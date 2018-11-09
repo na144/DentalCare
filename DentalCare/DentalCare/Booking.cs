@@ -8,73 +8,33 @@ namespace DentalCare
 {
     class Booking
     {
+        private int bookingId;
         private string appointmentDate;
         private string examinationType;
         private string dentist;
-        private string additionalNotes;
+        private string additionalnotes;
+
+        public int BookingId { get; set; }
+        public string AppointmentDate { get; set; }
+        public string ExaminationType { get; set; }
+        public string Dentist { get; set; }
+        public string Additionalnotes { get; set; }
 
         public Booking()
         {
-            this.appointmentDate = "";
-            this.examinationType = "";
-            this.dentist = "";
-            this.additionalNotes = "";
-
+            this.AppointmentDate = "";
+            this.ExaminationType = "";
+            this.Dentist = "";
+            this.Additionalnotes = "";
         }
 
         public Booking(string aDate, string eType, string dent, string aNotes)
         {
 
-            this.appointmentDate = aDate;
-            this.examinationType = eType;
-            this.dentist = dent;
-            this.additionalNotes = aNotes;
-        }
-
-        public string AppointmentDate
-        {
-            get
-            {
-                return this.appointmentDate;
-            }
-            set
-            {
-                this.appointmentDate = value;
-            }
-        }
-        public string ExaminationType
-        {
-            get
-            {
-                return this.examinationType;
-            }
-            set
-            {
-                this.examinationType = value;
-            }
-        }
-
-        public string Dentist
-        {
-            get
-            {
-                return this.dentist;
-            }
-            set
-            {
-                this.dentist = value;
-            }
-        }
-        public string Additionalnotes
-        {
-            get
-            {
-                return this.additionalNotes;
-            }
-            set
-            {
-                this.additionalNotes = value;
-            }
+            this.AppointmentDate = aDate;
+            this.ExaminationType = eType;
+            this.Dentist = dent;
+            this.Additionalnotes = aNotes;
         }
     }
 }
