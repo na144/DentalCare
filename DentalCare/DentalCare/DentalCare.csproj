@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="Examination.cs" />
+    <Compile Include="PatientHandling.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="ReceptionistView.cs">
       <SubType>Form</SubType>

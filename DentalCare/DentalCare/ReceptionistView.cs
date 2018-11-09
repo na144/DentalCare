@@ -13,6 +13,7 @@ namespace DentalCare
     public partial class ReceptionistView : Form
     {
         DBconn dbConn = new DBconn();
+        PatientHandling patientHandling= new PatientHandling();
         DataTable dt;
 
         public ReceptionistView()
@@ -35,7 +36,7 @@ namespace DentalCare
         {
             pnlAddBooking.Visible = false;
             pnlPatientList.Visible = true;
-            fillPatientList();
+            patientHandling.fillPatientList(dataGridViewPatientList);
             
         }
 
@@ -79,32 +80,24 @@ namespace DentalCare
 
             if (!String.IsNullOrEmpty(bDate))
             {
-                filterPatientList(bDate);
+                if (patientHandling.checkPatientPersonalNumber(bDate))
+                {
+                    patientHandling.filterPatientList(bDate, dataGridViewPatientList);
+                }
+                else
+                {
+                    MessageBox.Show("Not a valid personal number");
+                }
+                
             }
             else
             {
-                fillPatientList();
+                patientHandling.fillPatientList(dataGridViewPatientList);
             }
             
 
         }
 
-        private void fillPatientList()
-        {
-            dt = new DataTable();
-            dt = dbConn.getPatientList();
-
-            dataGridViewPatientList.DataSource = dt;
-            
-        }
-
-        private void filterPatientList(string num)
-        {
-            dt = new DataTable();
-            dt = dbConn.getPatientByPersonalNumber(num);
-
-            //dataGridViewPatientList.Rows.Clear();
-            dataGridViewPatientList.DataSource = dt;
-        }
+        
     }
 }
