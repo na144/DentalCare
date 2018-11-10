@@ -181,13 +181,13 @@
             // addNewPatientToolStripMenuItem
             // 
             this.addNewPatientToolStripMenuItem.Name = "addNewPatientToolStripMenuItem";
-            this.addNewPatientToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.addNewPatientToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.addNewPatientToolStripMenuItem.Text = "Add New Patient";
             // 
             // seePatientListToolStripMenuItem
             // 
             this.seePatientListToolStripMenuItem.Name = "seePatientListToolStripMenuItem";
-            this.seePatientListToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.seePatientListToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.seePatientListToolStripMenuItem.Text = "See Patient List";
             this.seePatientListToolStripMenuItem.Click += new System.EventHandler(this.seePatientListToolStripMenuItem_Click);
             // 
@@ -223,10 +223,10 @@
             this.pnlAddBooking.Controls.Add(this.btnSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.txtSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.label2);
-            this.pnlAddBooking.Location = new System.Drawing.Point(498, 142);
+            this.pnlAddBooking.Location = new System.Drawing.Point(0, 142);
             this.pnlAddBooking.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddBooking.Name = "pnlAddBooking";
-            this.pnlAddBooking.Size = new System.Drawing.Size(369, 482);
+            this.pnlAddBooking.Size = new System.Drawing.Size(867, 482);
             this.pnlAddBooking.TabIndex = 1;
             this.pnlAddBooking.Visible = false;
             // 

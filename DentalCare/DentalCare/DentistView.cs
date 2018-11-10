@@ -12,9 +12,48 @@ namespace DentalCare
 {
     public partial class DentistView : Form
     {
+        DBconn dbconn = new DBconn();
+        PatientHandling patientHandling = new PatientHandling();
+        
+
         public DentistView()
         {
             InitializeComponent();
+            pnlNavReceptionist.Visible = true;
+            pnlPatientList.Visible = false;
+        }
+
+        private void DentistView_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void seePatientListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlPatientList.Visible = true;
+            patientHandling.fillPatientList(dataGridViewPatientList);
+        }
+
+        private void btnSearchPatient_Click(object sender, EventArgs e)
+        {
+            string bDate = txtSearchPatient.Text;
+
+            if (!String.IsNullOrEmpty(bDate))
+            {
+                if (patientHandling.checkPatientPersonalNumber(bDate))
+                {
+                    patientHandling.filterPatientList(bDate, dataGridViewPatientList);
+                }
+                else
+                {
+                    MessageBox.Show("Not a valid personal number");
+                }
+
+            }
+            else
+            {
+                patientHandling.fillPatientList(dataGridViewPatientList);
+            }
         }
     }
 }

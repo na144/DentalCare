@@ -14,7 +14,6 @@ namespace DentalCare
     {
         DBconn dbConn = new DBconn();
         PatientHandling patientHandling= new PatientHandling();
-        DataTable dt;
 
         public ReceptionistView()
         {
