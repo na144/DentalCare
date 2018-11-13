@@ -83,6 +83,12 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="PatientHandling.cs" />
+    <Compile Include="ClientInfoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientInfoView.Designer.cs">
+      <DependentUpon>ClientInfoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="ReceptionistView.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DentistView.resx">
       <DependentUpon>DentistView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientInfoView.resx">
+      <DependentUpon>ClientInfoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
