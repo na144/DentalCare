@@ -14,6 +14,7 @@ namespace DentalCare
     {
         DBconn dbconn = new DBconn();
         PatientHandling patientHandling = new PatientHandling();
+        CheckIfValid checkIfValid = new CheckIfValid();
         
 
         public DentistView()
@@ -40,7 +41,7 @@ namespace DentalCare
 
             if (!String.IsNullOrEmpty(bDate))
             {
-                if (patientHandling.checkPatientPersonalNumber(bDate))
+                if (checkIfValid.checkPersonalNumber(bDate))
                 {
                     patientHandling.filterPatientList(bDate, dataGridViewPatientList);
                 }

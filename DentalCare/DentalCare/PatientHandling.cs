@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Data;
 using System.Windows.Forms;
 
@@ -30,14 +29,8 @@ namespace DentalCare
             dataGridView.DataSource = dt;
         }
 
-        public bool checkPatientPersonalNumber(string number)
-        {
-            Match match = Regex.Match(number, @"^\d\d\d\d\d\d\d\d-\d\d\d\d$");
-            if (match.Success)
-            {
-                return true;
-            }
-            return false;
-        }
+        
+
+       
     }
 }

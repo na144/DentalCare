@@ -18,8 +18,17 @@ namespace DentalCare
         SqlCommand myCommand;
         SqlDataAdapter adapter;
         SqlConnection myConnection;
-        SqlParameter parameter1 = new SqlParameter();
-        SqlParameter parameter2 = new SqlParameter();
+        SqlParameter workparameter1;
+        SqlParameter workparameter2;
+        SqlParameter workparameter3;
+        SqlParameter workparameter4;
+        SqlParameter workparameter5;
+        SqlParameter workparameter6;
+        SqlParameter workparameter7;
+        SqlParameter workparameter8;
+        SqlParameter workparameter9;
+        SqlParameter workparameter10; 
+
         string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
 
         public DBconn()
@@ -79,13 +88,13 @@ namespace DentalCare
             dt = new DataTable();
             adapter = new SqlDataAdapter();
             myCommand = new SqlCommand();
-            parameter1 = new SqlParameter();
+            workparameter1 = new SqlParameter();
 
             myCommand.Connection = myConnection;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "spGetPatientByPersonalNumber";
-            parameter1 = myCommand.Parameters.Add("@fldPersonalNumber", SqlDbType.VarChar);
-            parameter1.Value = number;
+            workparameter1 = myCommand.Parameters.Add("@fldPersonalNumber", SqlDbType.VarChar);
+            workparameter1.Value = number;
 
             adapter.SelectCommand = myCommand;
             adapter.Fill(dt);
@@ -138,5 +147,99 @@ namespace DentalCare
             }
 
         }
+
+
+        public bool InsertNewPatientToDB(Client client)
+        {
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spRegisterNewPatient";
+
+            workparameter1 = new SqlParameter("@Personalnumber", SqlDbType.VarChar);
+            workparameter2 = new SqlParameter("@Firstname", SqlDbType.VarChar);
+            workparameter3 = new SqlParameter("@Lastname", SqlDbType.VarChar);
+            workparameter4 = new SqlParameter("@Address", SqlDbType.VarChar);
+            workparameter5 = new SqlParameter("@City", SqlDbType.VarChar);
+            workparameter6 = new SqlParameter("@Postcode", SqlDbType.VarChar);
+            workparameter7 = new SqlParameter("@Phone", SqlDbType.VarChar);
+            workparameter8 = new SqlParameter("@Email", SqlDbType.VarChar);
+            workparameter9 = new SqlParameter("@EmployeeID", SqlDbType.VarChar);
+            workparameter10 = new SqlParameter("@Rows", SqlDbType.Int);
+
+            myCommand.Parameters.Add(workparameter1);
+            workparameter1.Value = client.PersonalNumber;
+
+            //workparameter2 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter2);
+            workparameter2.Value = client.FirstName;
+
+            //workparameter3 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter3);
+            workparameter3.Value = client.LastName;
+
+            //workparameter4 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter4);
+            workparameter4.Value = client.Address;
+
+            //workparameter5 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter5);
+            workparameter5.Value = client.City;
+
+            //workparameter6 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter6);
+            workparameter6.Value = client.PostCode;
+
+            //workparameter7 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter7);
+            workparameter7.Value = client.PhoneNumber;
+
+            //workparameter8 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter8);
+            workparameter8.Value = client.Email;
+
+            //workparameter9 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter9);
+            workparameter9.Value = client.DentistID;
+
+            //workparameter10 = myCommand.Parameters.Add();
+            myCommand.Parameters.Add(workparameter10);
+            workparameter10.Direction = ParameterDirection.Output;
+
+            myConnection.Open();
+            myCommand.ExecuteNonQuery();
+
+            int svar = Convert.ToInt32(workparameter10.SqlValue.ToString());
+
+            myConnection.Close();
+
+            if(svar == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public DataTable GetDentistList()
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetDentistList";
+
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+
+            return dt;
+        }
+
+
     }
 }
