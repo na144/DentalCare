@@ -19,7 +19,8 @@ namespace DentalCare
         SqlConnection myConnection;
         SqlParameter parameter1 = new SqlParameter();
         SqlParameter parameter2 = new SqlParameter();
-        string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
 
         public DBconn()
         {
@@ -34,7 +35,7 @@ namespace DentalCare
             /*"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";*/
 
 
-            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
+            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+KfileName+"Integrated Security=True";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
             ///* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
             ///
@@ -136,5 +137,42 @@ namespace DentalCare
             }
 
         }
+
+        //
+        public void getClientInfo (TextBox txb, TextBox txb2, TextBox txb3, TextBox txb4, TextBox txb5,
+            TextBox txb6, TextBox txb7,TextBox txb8, TextBox txb9)
+        {
+            String procedName = "spGetClientInfo"; ;
+            myConnection.Open();
+            myCommand = new SqlCommand(procedName, myConnection);
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@fldPersonalnumber", (txb.Text));
+            SqlDataReader dr;
+            dr = myCommand.ExecuteReader();
+
+            if (dr.Read())
+            {
+                txb2.Text = dr["persNumber"].ToString();
+                txb3.Text = dr["fName"].ToString();
+                txb4.Text = dr["lName"].ToString();
+                txb5.Text = dr["address"].ToString();
+                txb6.Text = dr["city"].ToString();
+                txb7.Text = dr["postcode"].ToString();
+                txb8.Text = dr["phone"].ToString();
+                txb9.Text = dr["email"].ToString();
+               
+
+            }
+            else
+            {
+                txb2.Text = "";
+            }
+
+            myConnection.Close();
+        }
     }
+
+
+
+    
 }
