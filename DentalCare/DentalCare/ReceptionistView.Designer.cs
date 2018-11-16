@@ -60,6 +60,29 @@
             this.btnSearchPatientMakeBooking = new System.Windows.Forms.Button();
             this.txtSearchPatientMakeBooking = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnlNewPatient = new System.Windows.Forms.Panel();
+            this.gbxNewPatientInfo = new System.Windows.Forms.GroupBox();
+            this.txtNewPatientPersonalNumber = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtNewPatientFirstName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtNewPatientEmail = new System.Windows.Forms.TextBox();
+            this.txtNewPatientLastName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtNewPatientPhone = new System.Windows.Forms.TextBox();
+            this.txtNewPatientAddress = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtNewPatientPostCode = new System.Windows.Forms.TextBox();
+            this.txtNewPatientCity = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnNewPatientCancel = new System.Windows.Forms.Button();
+            this.btnNewPatientRegister = new System.Windows.Forms.Button();
+            this.cbxNewPatientDentist = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlPatientList = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -72,6 +95,8 @@
             this.ReceptionistMenuStrip.SuspendLayout();
             this.pnlAddBooking.SuspendLayout();
             this.gbxMakeBooking.SuspendLayout();
+            this.pnlNewPatient.SuspendLayout();
+            this.gbxNewPatientInfo.SuspendLayout();
             this.pnlPatientList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).BeginInit();
             this.SuspendLayout();
@@ -159,13 +184,13 @@
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // NewBookingStripMenuItem
             // 
             this.NewBookingStripMenuItem.Name = "NewBookingStripMenuItem";
-            this.NewBookingStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.NewBookingStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.NewBookingStripMenuItem.Text = "New booking";
             this.NewBookingStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
             // 
@@ -183,6 +208,7 @@
             this.addNewPatientToolStripMenuItem.Name = "addNewPatientToolStripMenuItem";
             this.addNewPatientToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.addNewPatientToolStripMenuItem.Text = "Add New Patient";
+            this.addNewPatientToolStripMenuItem.Click += new System.EventHandler(this.addNewPatientToolStripMenuItem_Click);
             // 
             // seePatientListToolStripMenuItem
             // 
@@ -223,10 +249,10 @@
             this.pnlAddBooking.Controls.Add(this.btnSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.txtSearchPatientMakeBooking);
             this.pnlAddBooking.Controls.Add(this.label2);
-            this.pnlAddBooking.Location = new System.Drawing.Point(498, 142);
+            this.pnlAddBooking.Location = new System.Drawing.Point(0, 138);
             this.pnlAddBooking.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddBooking.Name = "pnlAddBooking";
-            this.pnlAddBooking.Size = new System.Drawing.Size(369, 482);
+            this.pnlAddBooking.Size = new System.Drawing.Size(869, 482);
             this.pnlAddBooking.TabIndex = 1;
             this.pnlAddBooking.Visible = false;
             // 
@@ -384,6 +410,220 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Date of Birth:";
             // 
+            // pnlNewPatient
+            // 
+            this.pnlNewPatient.Controls.Add(this.gbxNewPatientInfo);
+            this.pnlNewPatient.Controls.Add(this.btnNewPatientCancel);
+            this.pnlNewPatient.Controls.Add(this.btnNewPatientRegister);
+            this.pnlNewPatient.Controls.Add(this.cbxNewPatientDentist);
+            this.pnlNewPatient.Controls.Add(this.label18);
+            this.pnlNewPatient.Controls.Add(this.label9);
+            this.pnlNewPatient.Location = new System.Drawing.Point(-4, 139);
+            this.pnlNewPatient.Name = "pnlNewPatient";
+            this.pnlNewPatient.Size = new System.Drawing.Size(864, 482);
+            this.pnlNewPatient.TabIndex = 6;
+            // 
+            // gbxNewPatientInfo
+            // 
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientPersonalNumber);
+            this.gbxNewPatientInfo.Controls.Add(this.label10);
+            this.gbxNewPatientInfo.Controls.Add(this.label11);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientFirstName);
+            this.gbxNewPatientInfo.Controls.Add(this.label12);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientEmail);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientLastName);
+            this.gbxNewPatientInfo.Controls.Add(this.label17);
+            this.gbxNewPatientInfo.Controls.Add(this.label13);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientPhone);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientAddress);
+            this.gbxNewPatientInfo.Controls.Add(this.label16);
+            this.gbxNewPatientInfo.Controls.Add(this.label14);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientPostCode);
+            this.gbxNewPatientInfo.Controls.Add(this.txtNewPatientCity);
+            this.gbxNewPatientInfo.Controls.Add(this.label15);
+            this.gbxNewPatientInfo.Location = new System.Drawing.Point(13, 45);
+            this.gbxNewPatientInfo.Name = "gbxNewPatientInfo";
+            this.gbxNewPatientInfo.Size = new System.Drawing.Size(372, 403);
+            this.gbxNewPatientInfo.TabIndex = 21;
+            this.gbxNewPatientInfo.TabStop = false;
+            this.gbxNewPatientInfo.Text = "Contact Information";
+            // 
+            // txtNewPatientPersonalNumber
+            // 
+            this.txtNewPatientPersonalNumber.Location = new System.Drawing.Point(136, 41);
+            this.txtNewPatientPersonalNumber.Name = "txtNewPatientPersonalNumber";
+            this.txtNewPatientPersonalNumber.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientPersonalNumber.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(122, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Personal Number:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 81);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 17);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "First Name:";
+            // 
+            // txtNewPatientFirstName
+            // 
+            this.txtNewPatientFirstName.Location = new System.Drawing.Point(136, 78);
+            this.txtNewPatientFirstName.Name = "txtNewPatientFirstName";
+            this.txtNewPatientFirstName.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientFirstName.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 120);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Last Name:";
+            // 
+            // txtNewPatientEmail
+            // 
+            this.txtNewPatientEmail.Location = new System.Drawing.Point(136, 325);
+            this.txtNewPatientEmail.Name = "txtNewPatientEmail";
+            this.txtNewPatientEmail.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientEmail.TabIndex = 16;
+            // 
+            // txtNewPatientLastName
+            // 
+            this.txtNewPatientLastName.Location = new System.Drawing.Point(136, 117);
+            this.txtNewPatientLastName.Name = "txtNewPatientLastName";
+            this.txtNewPatientLastName.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientLastName.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 328);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(102, 17);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Email Address:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 17);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Address:";
+            // 
+            // txtNewPatientPhone
+            // 
+            this.txtNewPatientPhone.Location = new System.Drawing.Point(136, 282);
+            this.txtNewPatientPhone.Name = "txtNewPatientPhone";
+            this.txtNewPatientPhone.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientPhone.TabIndex = 14;
+            // 
+            // txtNewPatientAddress
+            // 
+            this.txtNewPatientAddress.Location = new System.Drawing.Point(136, 157);
+            this.txtNewPatientAddress.Name = "txtNewPatientAddress";
+            this.txtNewPatientAddress.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientAddress.TabIndex = 8;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 282);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 17);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Phone Number:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 199);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 17);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "City:";
+            // 
+            // txtNewPatientPostCode
+            // 
+            this.txtNewPatientPostCode.Location = new System.Drawing.Point(136, 239);
+            this.txtNewPatientPostCode.Name = "txtNewPatientPostCode";
+            this.txtNewPatientPostCode.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientPostCode.TabIndex = 12;
+            // 
+            // txtNewPatientCity
+            // 
+            this.txtNewPatientCity.Location = new System.Drawing.Point(136, 196);
+            this.txtNewPatientCity.Name = "txtNewPatientCity";
+            this.txtNewPatientCity.Size = new System.Drawing.Size(186, 22);
+            this.txtNewPatientCity.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 242);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 17);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Post Code:";
+            // 
+            // btnNewPatientCancel
+            // 
+            this.btnNewPatientCancel.Location = new System.Drawing.Point(586, 395);
+            this.btnNewPatientCancel.Name = "btnNewPatientCancel";
+            this.btnNewPatientCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnNewPatientCancel.TabIndex = 20;
+            this.btnNewPatientCancel.Text = "Cancel";
+            this.btnNewPatientCancel.UseVisualStyleBackColor = true;
+            this.btnNewPatientCancel.Click += new System.EventHandler(this.btnNewPatientCancel_Click);
+            // 
+            // btnNewPatientRegister
+            // 
+            this.btnNewPatientRegister.Location = new System.Drawing.Point(463, 395);
+            this.btnNewPatientRegister.Name = "btnNewPatientRegister";
+            this.btnNewPatientRegister.Size = new System.Drawing.Size(100, 28);
+            this.btnNewPatientRegister.TabIndex = 19;
+            this.btnNewPatientRegister.Text = "Register ";
+            this.btnNewPatientRegister.UseVisualStyleBackColor = true;
+            this.btnNewPatientRegister.Click += new System.EventHandler(this.btnNewPatientRegister_Click);
+            // 
+            // cbxNewPatientDentist
+            // 
+            this.cbxNewPatientDentist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNewPatientDentist.FormattingEnabled = true;
+            this.cbxNewPatientDentist.Location = new System.Drawing.Point(463, 86);
+            this.cbxNewPatientDentist.Name = "cbxNewPatientDentist";
+            this.cbxNewPatientDentist.Size = new System.Drawing.Size(224, 24);
+            this.cbxNewPatientDentist.TabIndex = 18;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(460, 57);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(204, 17);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Assign a dentist to new patient:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(171, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Register a new patient";
+            // 
             // pnlPatientList
             // 
             this.pnlPatientList.Controls.Add(this.label8);
@@ -395,7 +635,7 @@
             this.pnlPatientList.Location = new System.Drawing.Point(0, 139);
             this.pnlPatientList.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPatientList.Name = "pnlPatientList";
-            this.pnlPatientList.Size = new System.Drawing.Size(867, 481);
+            this.pnlPatientList.Size = new System.Drawing.Size(873, 481);
             this.pnlPatientList.TabIndex = 6;
             this.pnlPatientList.Visible = false;
             // 
@@ -469,9 +709,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 624);
-            this.Controls.Add(this.pnlAddBooking);
             this.Controls.Add(this.pnlNavReceptionist);
             this.Controls.Add(this.pnlPatientList);
+            this.Controls.Add(this.pnlAddBooking);
+            this.Controls.Add(this.pnlNewPatient);
             this.MainMenuStrip = this.ReceptionistMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReceptionistView";
@@ -486,6 +727,10 @@
             this.pnlAddBooking.PerformLayout();
             this.gbxMakeBooking.ResumeLayout(false);
             this.gbxMakeBooking.PerformLayout();
+            this.pnlNewPatient.ResumeLayout(false);
+            this.pnlNewPatient.PerformLayout();
+            this.gbxNewPatientInfo.ResumeLayout(false);
+            this.gbxNewPatientInfo.PerformLayout();
             this.pnlPatientList.ResumeLayout(false);
             this.pnlPatientList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
@@ -534,6 +779,29 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlNewPatient;
+        private System.Windows.Forms.TextBox txtNewPatientAddress;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtNewPatientLastName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtNewPatientFirstName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtNewPatientPersonalNumber;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtNewPatientPostCode;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtNewPatientCity;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnNewPatientCancel;
+        private System.Windows.Forms.Button btnNewPatientRegister;
+        private System.Windows.Forms.ComboBox cbxNewPatientDentist;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtNewPatientEmail;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtNewPatientPhone;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox gbxNewPatientInfo;
     }
 }
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace DentalCare
 {
@@ -30,6 +30,7 @@ namespace DentalCare
             dataGridView.DataSource = dt;
         }
 
+
         public bool checkPatientPersonalNumber(string number)
         {
             Match match = Regex.Match(number, @"^\d\d\d\d\d\d\d\d-\d\d\d\d$");
@@ -40,6 +41,5 @@ namespace DentalCare
             return false;
         }
 
-        
     }
 }
