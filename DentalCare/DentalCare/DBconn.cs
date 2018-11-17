@@ -19,26 +19,28 @@ namespace DentalCare
         SqlConnection myConnection;
         SqlParameter parameter1 = new SqlParameter();
         SqlParameter parameter2 = new SqlParameter();
-        string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        SqlParameter parameter3 = new SqlParameter();
+        SqlParameter parameter4 = new SqlParameter();
+        SqlParameter parameter5 = new SqlParameter();
+        SqlParameter parameter6 = new SqlParameter();
+        SqlParameter parameter7 = new SqlParameter();
+        //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        string LfileName = "AttachDbFilename=C:\\Users\\linav\\Desktop\\Projects\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
 
         public DBconn()
         {
             myConnection = new SqlConnection();
 
-
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
-            ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
+            //* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
             /* V- */
             //"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             /*"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";*/
 
-
-            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
-            ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
-            ///* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
-            ///
-
+            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+LfileName+"Integrated Security=True";
+            //* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
+            //* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
         }
 
         public DataTable Login(string username,string password,string role)
@@ -69,7 +71,6 @@ namespace DentalCare
 
             myConnection.Close();
             return dt;
-
         }
 
         public DataTable getPatientByPersonalNumber(string number)
@@ -90,42 +91,105 @@ namespace DentalCare
 
             myConnection.Close();
             return dt;
-
         }
 
-        public bool InsertNewBookingToDB(Booking booking)
+        public void getClientInfo(TextBox txb, TextBox txb2, TextBox txb3, TextBox txtEmployeeID, TextBox txtClientID)
+        {
+            String conString = myConnection.ConnectionString;
+            myConnection = new SqlConnection(conString);
+            String procedName = "spGetClientInfo";
+            myConnection.Open();
+            myCommand = new SqlCommand(procedName, myConnection);
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("fldPersonalnumber", (txb.Text));
+            SqlDataReader dr;
+            dr = myCommand.ExecuteReader();
+
+            if (dr.Read())
+            {
+                txb2.Text = dr["fName"].ToString();
+                txb3.Text = dr["lName"].ToString();
+                txtEmployeeID.Text = dr["eID"].ToString();
+                txtClientID.Text = dr["cID"].ToString();
+            }
+            else
+            {
+                txb2.Text = "";
+                txb3.Text = "";
+                txtEmployeeID.Text = "";
+                txtClientID.Text = "";
+            }
+            myConnection.Close();
+        }
+
+        public void CreateNewBooking(TextBox txtDate, TextBox txtClientID, TextBox txtEmployeeID, TextBox txtExaminationType, TextBox txtNotes, TextBox txtTime)
+        {
+            Booking booking = new Booking();
+            booking.Date = txtDate.Text;
+            booking.ClientID = Convert.ToInt32(txtClientID.Text);
+            booking.EmployeeID = Convert.ToInt32(txtEmployeeID.Text);
+            booking.ExaminationType = txtExaminationType.Text;
+            booking.Notes = txtNotes.Text;
+            booking.Time = txtTime.Text;
+            Boolean answer = InsertNewBooking(booking);
+            if (answer == true)
+            {
+                txtDate.ResetText();
+                txtClientID.ResetText();
+                txtEmployeeID.ResetText();
+                txtExaminationType.ResetText();
+                txtNotes.ResetText();
+                txtTime.ResetText();  
+                MessageBox.Show("New booking is inserted.");
+            }
+            else
+            {
+                MessageBox.Show("Invalid input.");
+            }
+        }
+
+        public bool InsertNewBooking(Booking booking)
         {
             myCommand = new SqlCommand();
+            parameter1 = new SqlParameter();
+            parameter2 = new SqlParameter();
+            parameter3 = new SqlParameter();
+            parameter4 = new SqlParameter();
+            parameter5 = new SqlParameter();
+            parameter6 = new SqlParameter();
+            parameter7 = new SqlParameter();
+
             myCommand.Connection = myConnection;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "spRegNewBooking";
 
-            SqlParameter workparameter1 = new SqlParameter();
-            SqlParameter workparameter2 = new SqlParameter();
-            SqlParameter workparameter3 = new SqlParameter();
-            SqlParameter workparameter4 = new SqlParameter();
-            SqlParameter workparameter5 = new SqlParameter();
+            parameter1 = myCommand.Parameters.Add("@Date", SqlDbType.VarChar);
+            parameter1.Value = booking.Date;
 
-            workparameter1 = myCommand.Parameters.Add("@AppointmentDate", SqlDbType.VarChar);
-            workparameter1.Value = booking.AppointmentDate;
+            parameter2 = myCommand.Parameters.Add("@ClientID", SqlDbType.Int);
+            parameter2.Value = Convert.ToInt32(booking.ClientID);
 
-            workparameter2 = myCommand.Parameters.Add("@ExaminationType", SqlDbType.VarChar);
-            workparameter2.Value = booking.ExaminationType;
+            parameter3 = myCommand.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            parameter3.Value = Convert.ToInt32(booking.EmployeeID);
 
-            workparameter3 = myCommand.Parameters.Add("@Dentist", SqlDbType.VarChar);
-            workparameter3.Value = booking.Dentist;
+            parameter4 = myCommand.Parameters.Add("@ExaminationType", SqlDbType.VarChar);
+            parameter4.Value = booking.ExaminationType;
 
-            workparameter4 = myCommand.Parameters.Add("@AdditionalNotes", SqlDbType.VarChar);
-            workparameter4.Value = booking.Additionalnotes;
+            parameter5 = myCommand.Parameters.Add("@Notes", SqlDbType.VarChar);
+            parameter5.Value = booking.Notes;
 
-            workparameter5 = myCommand.Parameters.Add("@AntalRader", SqlDbType.Int);
-            workparameter5.Direction = ParameterDirection.Output;
+            parameter6 = myCommand.Parameters.Add("@Time", SqlDbType.VarChar);
+            parameter6.Value = booking.Time;
+
+            parameter7 = myCommand.Parameters.Add("@Rows", SqlDbType.Int);
+            parameter7.Direction = ParameterDirection.Output;
 
             myConnection.Open();
             myCommand.ExecuteNonQuery();
-            int svar = Convert.ToInt32(workparameter5.SqlValue.ToString());
-            myConnection.Close();
+            int svar = Convert.ToInt32(parameter7.SqlValue.ToString());
 
+            myConnection.Close();
+            
             if (svar == 1)
             {
                 return true;
@@ -134,7 +198,6 @@ namespace DentalCare
             {
                 return false;
             }
-
         }
     }
 }

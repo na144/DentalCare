@@ -8,72 +8,100 @@ namespace DentalCare
 {
     class Booking
     {
-        private string appointmentDate;
-        private string examinationType;
-        private string dentist;
-        private string additionalNotes;
-
+        private string date;
+        private int clientID;
+        private int employeeID;
+        private string type;
+        private string notes;
+        private string time;
+        
         public Booking()
         {
-            this.appointmentDate = "";
-            this.examinationType = "";
-            this.dentist = "";
-            this.additionalNotes = "";
-
+            this.date = "";
+            this.clientID = 0;
+            this.employeeID = 0;
+            this.type = "";
+            this.notes = "";
+            this.time = "";  
         }
 
-        public Booking(string aDate, string eType, string dent, string aNotes)
+        public Booking(string d, int c, int e, string t, string n, string ti)
         {
-
-            this.appointmentDate = aDate;
-            this.examinationType = eType;
-            this.dentist = dent;
-            this.additionalNotes = aNotes;
+            this.date = d;
+            this.clientID = c;
+            this.employeeID = e;
+            this.type = t;
+            this.notes = n;
+            this.time = ti;
         }
 
-        public string AppointmentDate
+        public string Date
         {
             get
             {
-                return this.appointmentDate;
+                return this.date;
             }
             set
             {
-                this.appointmentDate = value;
+                this.date = value;
             }
         }
+
+        public int ClientID
+        {
+            get
+            {
+                return this.clientID;
+            }
+            set
+            {
+                this.clientID = value;
+            }
+        }
+
         public string ExaminationType
         {
             get
             {
-                return this.examinationType;
+                return this.type;
             }
             set
             {
-                this.examinationType = value;
+                this.type = value;
             }
         }
 
-        public string Dentist
+        public int EmployeeID
         {
             get
             {
-                return this.dentist;
+                return this.employeeID;
             }
             set
             {
-                this.dentist = value;
+                this.employeeID = value;
             }
         }
-        public string Additionalnotes
+        public string Notes
         {
             get
             {
-                return this.additionalNotes;
+                return this.notes;
             }
             set
             {
-                this.additionalNotes = value;
+                this.notes = value;
+            }
+        }
+        public string Time
+        {
+            get
+            {
+                return this.time;
+            }
+            set
+            {
+                this.time = value;
             }
         }
     }

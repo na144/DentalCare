@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,6 @@ namespace DentalCare
             pnlNavReceptionist.Visible = true;
             pnlAddBooking.Visible = false;
             pnlPatientList.Visible = false;
-
         }
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,8 +35,7 @@ namespace DentalCare
         {
             pnlAddBooking.Visible = false;
             pnlPatientList.Visible = true;
-            fillPatientList();
-            
+            fillPatientList();         
         }
 
         private void ReceptionistView_Load(object sender, EventArgs e)
@@ -52,25 +51,7 @@ namespace DentalCare
 
         private void btnSubmitMakeBooking_Click(object sender, EventArgs e)
         {
-            Booking booking = new Booking();
-            booking.Dentist = txtDentist.Text;
-            booking.AppointmentDate = txtNotesMakeBooking.Text;
-            booking.ExaminationType = txtExaminationType.Text;
-          
-            booking.Additionalnotes = txtNotesMakeBooking.Text;
-            Boolean answer = dbConn.InsertNewBookingToDB(booking);
-            if (answer == true)
-            {
-                MessageBox.Show("New booking is inserted.");
-                cboxAppointmentDate.Items.Clear();
-                txtExaminationType.ResetText();
-                txtDentist.ResetText();
-                txtNotesMakeBooking.ResetText();
-            }
-            else
-            {
-                MessageBox.Show("Invalid input.");
-            }
+            
         }
 
         private void btnSearchPatient_Click(object sender, EventArgs e)
@@ -85,7 +66,6 @@ namespace DentalCare
             {
                 fillPatientList();
             }
-            
 
         }
 
@@ -95,7 +75,6 @@ namespace DentalCare
             dt = dbConn.getPatientList();
 
             dataGridViewPatientList.DataSource = dt;
-            
         }
 
         private void filterPatientList(string num)
@@ -105,6 +84,26 @@ namespace DentalCare
 
             //dataGridViewPatientList.Rows.Clear();
             dataGridViewPatientList.DataSource = dt;
+        }
+
+        private void pnlNavReceptionist_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void addNewPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchPatientMakeBooking_Click_1(object sender, EventArgs e)
+        {
+            dbConn.getClientInfo(txb, txb2, txb3, txtEmployeeID, txtClientID);
+        }
+
+        private void btnSubmitMakeBooking_Click_1(object sender, EventArgs e)
+        {
+            dbConn.CreateNewBooking(txtDate, txtClientID, txtEmployeeID, txtExaminationType, txtNotes, txtTime);
         }
     }
 }
