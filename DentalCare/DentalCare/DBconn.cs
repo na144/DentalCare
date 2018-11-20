@@ -19,12 +19,11 @@ namespace DentalCare
         SqlConnection myConnection;
         SqlParameter parameter1 = new SqlParameter();
         SqlParameter parameter2 = new SqlParameter();
-        string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
 
         public DBconn()
         {
             myConnection = new SqlConnection();
-
 
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
@@ -33,23 +32,88 @@ namespace DentalCare
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             /*"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";*/
 
-
-            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
+            //myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
+            //myConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git02\DentalCare\DentalCare\DentalCare\dbDentalCare.mdf;Integrated Security=True";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
             ///* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
-            ///
-
         }
 
-        public DataTable Login(string username,string password,string role)
+        public DataTable CheckLogin(string username)
         {
-
-            myCommand = new SqlCommand("select L.fldUsername,L.fldPassword,U.fldRole from tblLogin L inner join tblUser U on L.fldLoginId=U.fldLoginId where fldUserName='" + username 
-                                        + "'and fldPassword='" + password + "'and fldRole='" + role + "'",myConnection);
-
             dt = new DataTable();
             adapter = new SqlDataAdapter(myCommand);
+            myCommand = new SqlCommand
+            {
+                Connection = myConnection,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "spLoginCheck"
+            };
+            myCommand.Parameters.Add("@uname", SqlDbType.VarChar).Value = username;
+            adapter.SelectCommand = myCommand;
             adapter.Fill(dt);
+            myConnection.Close();
+            return dt;
+        }
+
+        public DataTable getRole(string username)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand
+            {
+                Connection = myConnection,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "spGetRole"
+            };
+            myCommand.Parameters.Add("@hasuname", SqlDbType.VarChar).Value = username;
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+            myConnection.Close();
+            return dt;
+        }
+
+        public void AddEmployee(Employee employee,Login login)
+        {
+            myCommand = new SqlCommand
+            {
+                Connection = myConnection,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "spAddEmployee"
+            };
+            myCommand.Parameters.Add("@uname", SqlDbType.VarChar).Value = login.UserName;
+            myCommand.Parameters.Add("@pword", SqlDbType.VarChar).Value = login.Password;
+            myCommand.Parameters.Add("@roleid", SqlDbType.Int).Value = employee.RoleId;
+            myCommand.Parameters.Add("@loginid", SqlDbType.Int).Value = employee.LoginId;
+            myCommand.Parameters.Add("@personnumber", SqlDbType.VarChar).Value = employee.PersonalNumber;
+            myCommand.Parameters.Add("@fname", SqlDbType.VarChar).Value = employee.FirstName;
+            myCommand.Parameters.Add("@lname", SqlDbType.VarChar).Value = employee.LastName;
+            myCommand.Parameters.Add("@address", SqlDbType.VarChar).Value = employee.Address;
+            myCommand.Parameters.Add("@city", SqlDbType.VarChar).Value = employee.City;
+            myCommand.Parameters.Add("@pcode", SqlDbType.VarChar).Value = employee.PostCode;
+            myCommand.Parameters.Add("@phone", SqlDbType.VarChar).Value = employee.PhoneNumber;
+            myCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = employee.Email;
+            myConnection.Open();
+            int i = myCommand.ExecuteNonQuery();
+            if (i != 0)
+            {
+                MessageBox.Show("Registration Successful!");
+            }
+            myConnection.Close();
+        }
+
+        public DataTable EmployeesList()
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand
+            {
+                Connection = myConnection,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "spEmployeesList"
+            };
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+            myConnection.Close();
             return dt;
         }
 

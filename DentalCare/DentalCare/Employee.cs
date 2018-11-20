@@ -8,10 +8,12 @@ namespace DentalCare
 {
     class Employee : Person
     {
-        private string employeeId;
-        private string role;
+        private int employeeId;
+        private int roleId;
+        private int loginId;
 
-        public string EmployeeId { get; set; }
-        public string Role { get; set; }
+        public int EmployeeId { get; set; }
+        public int RoleId { get; set; }
+        public int LoginId { get; set; }
     }
 }

@@ -17,10 +17,10 @@ namespace DentalCare
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
-            //Application.Run(new Login());
-            Application.Run(new ReceptionistView());
 
+            Application.Run(new LoginView());
+            //Application.Run(new ReceptionistView());
+            //Application.Run(new AdminView());
 
         }
     }
