@@ -12,7 +12,6 @@ C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.exe.config
 C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.exe
 C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\DentalCare.pdb
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csprojAssemblyReference.cache
-C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Login.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Properties.Resources.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ReceptionistView.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.GenerateResource.cache
@@ -28,6 +27,19 @@ C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\Entity
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CopyComplete
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.DentistView.resources
+<<<<<<< HEAD
 C:\Users\Karin\Desktop\KursAdvPro\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\connections.config
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
+=======
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare.mdf
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare_log.ldf
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.dll
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.SqlServer.dll
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.xml
+C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.SqlServer.xml
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.DentistView.resources
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CopyComplete
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.LoginView.resources
+C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.AdminView.resources
+>>>>>>> Login/1.1

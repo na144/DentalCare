@@ -146,6 +146,7 @@ namespace DentalCare
 
         }
 
+
         private Client registerNewPatient(Client client)
         {
             client.PersonalNumber = txtNewPatientPersonalNumber.Text;
@@ -199,6 +200,17 @@ namespace DentalCare
 
             return id;
         }
+        private void lblReceptionistUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            LoginView lv = new LoginView();
+            lv.ShowDialog();
+
+        }
     }
-      
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlNavReceptionist = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblReceptionistUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ReceptionistMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -90,8 +89,8 @@
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewPatientList = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNavReceptionist.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ReceptionistMenuStrip.SuspendLayout();
             this.pnlAddBooking.SuspendLayout();
             this.gbxMakeBooking.SuspendLayout();
@@ -99,6 +98,7 @@
             this.gbxNewPatientInfo.SuspendLayout();
             this.pnlPatientList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNavReceptionist
@@ -114,17 +114,6 @@
             this.pnlNavReceptionist.Size = new System.Drawing.Size(877, 137);
             this.pnlNavReceptionist.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DentalCare.Properties.Resources.Logo7;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblReceptionistUser
             // 
             this.lblReceptionistUser.AutoSize = true;
@@ -134,6 +123,7 @@
             this.lblReceptionistUser.Size = new System.Drawing.Size(46, 17);
             this.lblReceptionistUser.TabIndex = 2;
             this.lblReceptionistUser.Text = "label2";
+            this.lblReceptionistUser.Click += new System.EventHandler(this.lblReceptionistUser_Click);
             // 
             // label1
             // 
@@ -220,8 +210,8 @@
             // dentalStaffsToolStripMenuItem
             // 
             this.dentalStaffsToolStripMenuItem.Name = "dentalStaffsToolStripMenuItem";
-            this.dentalStaffsToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
-            this.dentalStaffsToolStripMenuItem.Text = "Dental Staffs";
+            this.dentalStaffsToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dentalStaffsToolStripMenuItem.Text = "Dental Staff";
             // 
             // settingsToolStripMenuItem
             // 
@@ -240,6 +230,7 @@
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // pnlAddBooking
             // 
@@ -704,6 +695,17 @@
             this.dataGridViewPatientList.Size = new System.Drawing.Size(671, 352);
             this.dataGridViewPatientList.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DentalCare.Properties.Resources.Logo7;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // ReceptionistView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -720,7 +722,6 @@
             this.Load += new System.EventHandler(this.ReceptionistView_Load);
             this.pnlNavReceptionist.ResumeLayout(false);
             this.pnlNavReceptionist.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ReceptionistMenuStrip.ResumeLayout(false);
             this.ReceptionistMenuStrip.PerformLayout();
             this.pnlAddBooking.ResumeLayout(false);
@@ -734,20 +735,18 @@
             this.pnlPatientList.ResumeLayout(false);
             this.pnlPatientList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlNavReceptionist;
         private System.Windows.Forms.MenuStrip ReceptionistMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem mainPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem appointmentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NewBookingStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblReceptionistUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dentalStaffsToolStripMenuItem;
@@ -779,6 +778,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.Panel pnlNewPatient;
         private System.Windows.Forms.TextBox txtNewPatientAddress;
         private System.Windows.Forms.Label label13;
@@ -802,6 +802,10 @@
         private System.Windows.Forms.TextBox txtNewPatientPhone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox gbxNewPatientInfo;
+=======
+        public System.Windows.Forms.Label lblReceptionistUser;
+        private System.Windows.Forms.Panel pnlNavReceptionist;
+>>>>>>> Login/1.1
     }
 }
 

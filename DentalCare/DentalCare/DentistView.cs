@@ -56,5 +56,12 @@ namespace DentalCare
                 patientHandling.fillPatientList(dataGridViewPatientList);
             }
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            LoginView lv = new LoginView();
+            lv.ShowDialog();
+        }
     }
 }

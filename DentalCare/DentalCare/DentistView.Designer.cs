@@ -30,9 +30,14 @@ namespace DentalCare
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.pnlNavReceptionist = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblReceptionistUser = new System.Windows.Forms.Label();
+=======
+            this.pnlNavDentist = new System.Windows.Forms.Panel();
+            this.lblDentistUser = new System.Windows.Forms.Label();
+>>>>>>> Login/1.1
             this.label1 = new System.Windows.Forms.Label();
             this.ReceptionistMenuStrip = new System.Windows.Forms.MenuStrip();
             this.mainPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +50,7 @@ namespace DentalCare
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.pnlPatientList = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -92,6 +98,42 @@ namespace DentalCare
             this.lblReceptionistUser.Size = new System.Drawing.Size(46, 17);
             this.lblReceptionistUser.TabIndex = 2;
             this.lblReceptionistUser.Text = "label2";
+=======
+            this.pnlAddBooking = new System.Windows.Forms.Panel();
+            this.patietList = new System.Windows.Forms.DataGridView();
+            this.btnSearchPatient = new System.Windows.Forms.Button();
+            this.txtSearchPatient = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlNavDentist.SuspendLayout();
+            this.ReceptionistMenuStrip.SuspendLayout();
+            this.pnlAddBooking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patietList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlNavDentist
+            // 
+            this.pnlNavDentist.BackColor = System.Drawing.Color.White;
+            this.pnlNavDentist.Controls.Add(this.pictureBox1);
+            this.pnlNavDentist.Controls.Add(this.lblDentistUser);
+            this.pnlNavDentist.Controls.Add(this.label1);
+            this.pnlNavDentist.Controls.Add(this.ReceptionistMenuStrip);
+            this.pnlNavDentist.Location = new System.Drawing.Point(-4, 0);
+            this.pnlNavDentist.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlNavDentist.Name = "pnlNavDentist";
+            this.pnlNavDentist.Size = new System.Drawing.Size(877, 137);
+            this.pnlNavDentist.TabIndex = 1;
+            // 
+            // lblDentistUser
+            // 
+            this.lblDentistUser.AutoSize = true;
+            this.lblDentistUser.Location = new System.Drawing.Point(676, 10);
+            this.lblDentistUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDentistUser.Name = "lblDentistUser";
+            this.lblDentistUser.Size = new System.Drawing.Size(46, 17);
+            this.lblDentistUser.TabIndex = 2;
+            this.lblDentistUser.Text = "label2";
+>>>>>>> Login/1.1
             // 
             // label1
             // 
@@ -169,8 +211,8 @@ namespace DentalCare
             // dentalStaffsToolStripMenuItem
             // 
             this.dentalStaffsToolStripMenuItem.Name = "dentalStaffsToolStripMenuItem";
-            this.dentalStaffsToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
-            this.dentalStaffsToolStripMenuItem.Text = "Dental Staffs";
+            this.dentalStaffsToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dentalStaffsToolStripMenuItem.Text = "Dental Staff";
             // 
             // settingsToolStripMenuItem
             // 
@@ -189,6 +231,7 @@ namespace DentalCare
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(68, 26);
             this.logoutToolStripMenuItem.Text = "Logout";
+<<<<<<< HEAD
             // 
             // pnlPatientList
             // 
@@ -227,9 +270,25 @@ namespace DentalCare
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(160, 24);
             this.comboBox2.TabIndex = 4;
+=======
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+>>>>>>> Login/1.1
             // 
             // btnSearchPatient
             // 
+            // 
+            // patietList
+            // 
+            this.patietList.AllowUserToAddRows = false;
+            this.patietList.AllowUserToDeleteRows = false;
+            this.patietList.BackgroundColor = System.Drawing.Color.White;
+            this.patietList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patietList.Location = new System.Drawing.Point(196, 80);
+            this.patietList.Name = "patietList";
+            this.patietList.ReadOnly = true;
+            this.patietList.RowTemplate.Height = 24;
+            this.patietList.Size = new System.Drawing.Size(442, 224);
+            this.patietList.TabIndex = 3;
             // 
             // btnSearchPatient
             // 
@@ -247,6 +306,7 @@ namespace DentalCare
             this.txtSearchPatient.Location = new System.Drawing.Point(127, 21);
             this.txtSearchPatient.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchPatient.Name = "txtSearchPatient";
+<<<<<<< HEAD
             this.txtSearchPatient.Size = new System.Drawing.Size(132, 22);
             this.txtSearchPatient.TabIndex = 2;
             // 
@@ -272,11 +332,27 @@ namespace DentalCare
             this.dataGridViewPatientList.ReadOnly = true;
             this.dataGridViewPatientList.Size = new System.Drawing.Size(671, 352);
             this.dataGridViewPatientList.TabIndex = 0;
+=======
+            this.txtSearchPatient.Size = new System.Drawing.Size(179, 22);
+            this.txtSearchPatient.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DentalCare.Properties.Resources.Logo7;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+>>>>>>> Login/1.1
             // 
             // DentistView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(869, 624);
             this.Controls.Add(this.pnlNavReceptionist);
             this.Controls.Add(this.pnlPatientList);
@@ -293,6 +369,21 @@ namespace DentalCare
             this.pnlPatientList.ResumeLayout(false);
             this.pnlPatientList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
+=======
+            this.ClientSize = new System.Drawing.Size(865, 539);
+            this.Controls.Add(this.pnlAddBooking);
+            this.Controls.Add(this.pnlNavDentist);
+            this.Name = "DentistView";
+            this.Text = "DentistView";
+            this.pnlNavDentist.ResumeLayout(false);
+            this.pnlNavDentist.PerformLayout();
+            this.ReceptionistMenuStrip.ResumeLayout(false);
+            this.ReceptionistMenuStrip.PerformLayout();
+            this.pnlAddBooking.ResumeLayout(false);
+            this.pnlAddBooking.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patietList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+>>>>>>> Login/1.1
             this.ResumeLayout(false);
 
         }
@@ -301,7 +392,11 @@ namespace DentalCare
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlNavReceptionist;
+
+        private System.Windows.Forms.Panel pnlNavDentist;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.MenuStrip ReceptionistMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem mainPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem appointmentsToolStripMenuItem;
@@ -319,9 +414,12 @@ namespace DentalCare
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button btnSearchPatient;
         private System.Windows.Forms.TextBox txtSearchPatient;
-        private System.Windows.Forms.Label label7;
+
         private System.Windows.Forms.DataGridView dataGridViewPatientList;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;
+
+        public System.Windows.Forms.Label lblDentistUser;
+
     }
 }
