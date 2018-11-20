@@ -21,7 +21,7 @@ namespace DentalCare
 
 
         //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
-        //string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
+        string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
 
         SqlParameter workparameter1;
         SqlParameter workparameter2;
@@ -32,7 +32,7 @@ namespace DentalCare
         SqlParameter workparameter7;
         SqlParameter workparameter8;
         SqlParameter workparameter9;
-        SqlParameter workparameter10; 
+        SqlParameter workparameter10;
 
         SqlParameter parameter1 = new SqlParameter();
         SqlParameter parameter2 = new SqlParameter();
@@ -247,7 +247,7 @@ namespace DentalCare
                 txb7.Text = dr["postcode"].ToString();
                 txb8.Text = dr["phone"].ToString();
                 txb9.Text = dr["email"].ToString();
-               
+
 
             }
             else
@@ -354,5 +354,5 @@ namespace DentalCare
 
 
 
-    
+
 }
