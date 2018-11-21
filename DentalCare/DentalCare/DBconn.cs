@@ -21,7 +21,7 @@ namespace DentalCare
 
 
         //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
-        string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
+        //string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
 
         SqlParameter workparameter1;
         SqlParameter workparameter2;
@@ -42,7 +42,7 @@ namespace DentalCare
         public DBconn()
         {
             myConnection = new SqlConnection();
-            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
+            //myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
 
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";

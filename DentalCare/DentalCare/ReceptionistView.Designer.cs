@@ -778,7 +778,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;
-<<<<<<< HEAD
         private System.Windows.Forms.Panel pnlNewPatient;
         private System.Windows.Forms.TextBox txtNewPatientAddress;
         private System.Windows.Forms.Label label13;
@@ -802,10 +801,9 @@
         private System.Windows.Forms.TextBox txtNewPatientPhone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox gbxNewPatientInfo;
-=======
+
         public System.Windows.Forms.Label lblReceptionistUser;
         private System.Windows.Forms.Panel pnlNavReceptionist;
->>>>>>> Login/1.1
     }
 }
 

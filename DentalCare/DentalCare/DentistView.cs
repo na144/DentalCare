@@ -63,5 +63,10 @@ namespace DentalCare
             LoginView lv = new LoginView();
             lv.ShowDialog();
         }
+
+        private void addNewPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
