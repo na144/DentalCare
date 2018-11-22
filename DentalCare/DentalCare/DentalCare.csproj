@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentHandling.cs" />
     <Compile Include="Booking.cs" />
     <Compile Include="CheckIfValid.cs" />
     <Compile Include="Client.cs" />

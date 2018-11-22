@@ -15,41 +15,49 @@ namespace DentalCare
     {
         DBconn dbConn = new DBconn();
         PatientHandling patientHandling = new PatientHandling();
+        AppointmentHandling appointmentHandling = new AppointmentHandling();
         CheckIfValid checkIfValid = new CheckIfValid();
 
         public ReceptionistView()
         {
 
             InitializeComponent();
+            HidePanels();
             pnlNavReceptionist.Visible = true;
-            pnlAddBooking.Visible = false;
-            pnlPatientList.Visible = false;
-            pnlNewPatient.Visible = false;
         }
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            HidePanels();
             pnlAddBooking.Visible = true;
-            pnlPatientList.Visible = false;
-            pnlNewPatient.Visible = false;
+            pnlNavReceptionist.Visible = true;
         }
 
         private void seePatientListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlAddBooking.Visible = false;
-            pnlNewPatient.Visible = false;
+            HidePanels();
             pnlPatientList.Visible = true;
+            pnlNavReceptionist.Visible = true;
             patientHandling.fillPatientList(dataGridViewPatientList);
 
         }
 
         private void addNewPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlAddBooking.Visible = false;
+            HidePanels();
             pnlNewPatient.Visible = true;
-            pnlPatientList.Visible = false;
-
+            pnlNavReceptionist.Visible = true;
             FillDentistDropDown();
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            pnlViewAllAppointments.Visible = true;
+            pnlNavReceptionist.Visible = true;
+            string sortingParam = cbxSortAppointment.SelectedItem.ToString();
+            appointmentHandling.FillAppointmentsList(dbConn, dataGridViewAppointments, sortingParam);
+            
 
         }
 
@@ -109,17 +117,41 @@ namespace DentalCare
             }
         }
 
+        private void btnSearchAppointments_Click(object sender, EventArgs e)
+        {
+            String bDate = txtSearchAppointments.Text;
 
-
+            if (!String.IsNullOrEmpty(bDate))
+            {
+                if (checkIfValid.checkPersonalNumber(bDate))
+                {
+                    appointmentHandling.FilterAppointmentList(bDate, dbConn, dataGridViewPatientList);
+                }
+                else
+                {
+                    MessageBox.Show("Not a valid personal number");
+                }
+            }
+            else
+            {
+                patientHandling.fillPatientList(dataGridViewPatientList);
+            }
+        }
+    
         private void btnNewPatientRegister_Click(object sender, EventArgs e)
         {
             Client client = new Client();
 
             String bDate = txtNewPatientPersonalNumber.Text;
 
+            int id = patientHandling.GetDentistIDForNewPatient(cbxNewPatientDentist);
+
             if (checkIfValid.checkPersonalNumber(bDate))
             {
-                registerNewPatient(client);
+                patientHandling.registerNewPatient(
+                    client, txtNewPatientPersonalNumber, txtNewPatientFirstName, txtNewPatientLastName,
+                    txtNewPatientAddress, txtNewPatientCity, txtNewPatientPostCode, txtNewPatientPhone,
+                    txtNewPatientEmail, id);
                 Boolean success = dbConn.InsertNewPatientToDB(client);
 
                 if (success)
@@ -146,21 +178,9 @@ namespace DentalCare
 
         }
 
-        private Client registerNewPatient(Client client)
-        {
-            client.PersonalNumber = txtNewPatientPersonalNumber.Text;
-            client.FirstName = txtNewPatientFirstName.Text;
-            client.LastName = txtNewPatientLastName.Text;
-            client.Address = txtNewPatientAddress.Text;
-            client.City = txtNewPatientCity.Text;
-            client.PostCode = txtNewPatientPostCode.Text;
-            client.PhoneNumber = txtNewPatientPhone.Text;
-            client.Email = txtNewPatientEmail.Text;
-            client.DentistID = GetDentistIDForNewPatient();
+       
 
-            return client;
-        }
-
+        //Recursive method that iterates over all textboxes to empty them
         private void ClearTextBoxes(Control.ControlCollection controls)
         {
             foreach (TextBox tb in controls.OfType<TextBox>())
@@ -182,7 +202,7 @@ namespace DentalCare
             string[] dentists = new string[dt.Rows.Count];
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                dentists[i] = dt.Rows[i][0].ToString() + " " + dt.Rows[i][1].ToString() + " " + dt.Rows[i][2].ToString();
+                dentists[i] = dt.Rows[i][0].ToString() + " " + dt.Rows[i][1].ToString();
             }
 
             foreach (string s in dentists)
@@ -191,13 +211,29 @@ namespace DentalCare
             }
         }
 
-        private int GetDentistIDForNewPatient()
+        private void dataGridViewPatientList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string temp = cbxNewPatientDentist.SelectedItem.ToString();
-            string[] subStrings = temp.Split(' ');
-            int id = Int32.Parse(subStrings[0]);
+            String selectedPatient = dataGridViewPatientList.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+            ClientInfoView clientInfoView = new ClientInfoView(/*selectedPatient*/);
+            this.Hide();
+            clientInfoView.Visible = true;
+        }
 
-            return id;
+        private void HidePanels()
+        {
+            foreach(Panel pnl in this.Controls.OfType<Panel>())
+            {
+               
+                    pnl.Visible = false;
+                
+                
+            }
+        }
+
+        private void cbxSortAppointment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sortingParam = cbxSortAppointment.SelectedItem.ToString();
+            appointmentHandling.FillAppointmentsList(dbConn, dataGridViewAppointments, sortingParam);
         }
     }
       
