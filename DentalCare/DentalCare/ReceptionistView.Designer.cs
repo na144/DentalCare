@@ -90,9 +90,7 @@
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewPatientList = new System.Windows.Forms.DataGridView();
-            this.pnlViewAllAppointments = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.cbxSortAppointment = new System.Windows.Forms.ComboBox();
+            this.pnlViewAllAppointments = new System.Windows.Forms.Panel();           
             this.btnSearchAppointments = new System.Windows.Forms.Button();
             this.txtSearchAppointments = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -717,8 +715,6 @@
             // 
             // pnlViewAllAppointments
             // 
-            this.pnlViewAllAppointments.Controls.Add(this.label19);
-            this.pnlViewAllAppointments.Controls.Add(this.cbxSortAppointment);
             this.pnlViewAllAppointments.Controls.Add(this.btnSearchAppointments);
             this.pnlViewAllAppointments.Controls.Add(this.txtSearchAppointments);
             this.pnlViewAllAppointments.Controls.Add(this.label20);
@@ -729,33 +725,8 @@
             this.pnlViewAllAppointments.Size = new System.Drawing.Size(873, 481);
             this.pnlViewAllAppointments.TabIndex = 7;
             this.pnlViewAllAppointments.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(480, 27);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 17);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Sort by:";
-            // 
-            // cbxSortAppointment
-            // 
-            this.cbxSortAppointment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSortAppointment.FormattingEnabled = true;
-            this.cbxSortAppointment.Items.AddRange(new object[] {
-            "Date",
-            "Personal Number",
-            "Booking ID",
-            "Dentist"});
-            this.cbxSortAppointment.Location = new System.Drawing.Point(540, 22);
-            this.cbxSortAppointment.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxSortAppointment.Name = "cbxSortAppointment";
-            this.cbxSortAppointment.Size = new System.Drawing.Size(160, 24);
-            this.cbxSortAppointment.TabIndex = 4;
-            this.cbxSortAppointment.SelectedIndex = 0;
-            this.cbxSortAppointment.SelectedIndexChanged += new System.EventHandler(this.cbxSortAppointment_SelectedIndexChanged);
+            
+            
             // 
             // btnSearchAppointments
             // 
@@ -902,8 +873,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox gbxNewPatientInfo;
         private System.Windows.Forms.Panel pnlViewAllAppointments;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox cbxSortAppointment;
         private System.Windows.Forms.Button btnSearchAppointments;
         private System.Windows.Forms.TextBox txtSearchAppointments;
         private System.Windows.Forms.Label label20;

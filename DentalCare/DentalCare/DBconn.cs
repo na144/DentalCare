@@ -264,7 +264,7 @@ namespace DentalCare
             return dt;
         }
 
-        public DataTable GetAppointmentList(string sortingParam)
+        public DataTable GetAppointmentList()
         {
             dt = new DataTable();
             adapter = new SqlDataAdapter();
@@ -272,15 +272,10 @@ namespace DentalCare
             myCommand.Connection = myConnection;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "spGetAppointmentList";
-            workparameter1 = new SqlParameter();
-            workparameter1 = myCommand.Parameters.Add("@Sorting", SqlDbType.VarChar);
-            workparameter1.Value = sortingParam;
-
             adapter.SelectCommand = myCommand;
             adapter.Fill(dt);
 
             myConnection.Close();
-
             return dt;
         }
 
@@ -289,12 +284,12 @@ namespace DentalCare
             dt = new DataTable();
             adapter = new SqlDataAdapter();
             myCommand = new SqlCommand();
+            workparameter1 = new SqlParameter();
            
-
             myCommand.Connection = myConnection;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "spGetAppointmentByPersonalNumber";
-            workparameter1 = myCommand.Parameters.Add("@fldPersonalNumber", SqlDbType.VarChar);
+            workparameter1 = myCommand.Parameters.Add("@Personalnumber", SqlDbType.VarChar);
             workparameter1.Value = bDate;
 
             adapter.SelectCommand = myCommand;

@@ -55,8 +55,7 @@ namespace DentalCare
             HidePanels();
             pnlViewAllAppointments.Visible = true;
             pnlNavReceptionist.Visible = true;
-            string sortingParam = cbxSortAppointment.SelectedItem.ToString();
-            appointmentHandling.FillAppointmentsList(dbConn, dataGridViewAppointments, sortingParam);
+            appointmentHandling.FillAppointmentsList(dbConn, dataGridViewAppointments);
             
 
         }
@@ -125,7 +124,7 @@ namespace DentalCare
             {
                 if (checkIfValid.checkPersonalNumber(bDate))
                 {
-                    appointmentHandling.FilterAppointmentList(bDate, dbConn, dataGridViewPatientList);
+                    appointmentHandling.FilterAppointmentList(bDate, dbConn, dataGridViewAppointments);
                 }
                 else
                 {
@@ -228,12 +227,6 @@ namespace DentalCare
                 
                 
             }
-        }
-
-        private void cbxSortAppointment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sortingParam = cbxSortAppointment.SelectedItem.ToString();
-            appointmentHandling.FillAppointmentsList(dbConn, dataGridViewAppointments, sortingParam);
         }
     }
       

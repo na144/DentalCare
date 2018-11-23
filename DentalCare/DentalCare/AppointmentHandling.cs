@@ -11,11 +11,11 @@ namespace DentalCare
     class AppointmentHandling
     {
         DataTable dt;
-        public void FillAppointmentsList(DBconn dbConn, DataGridView dataGridView, string sortingParam)
+
+        public void FillAppointmentsList(DBconn dbConn, DataGridView dataGridView)
         {
             dt = new DataTable();
-            dt = dbConn.GetAppointmentList(sortingParam);
-
+            dt = dbConn.GetAppointmentList();
             dataGridView.DataSource = dt;
         }
 
@@ -23,7 +23,6 @@ namespace DentalCare
         {
             dt = new DataTable();
             dt = dbConn.GetAppointmentByPersonalNumber(bDate);
-
             dataGridView.DataSource = dt;
         }
 
