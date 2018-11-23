@@ -16,7 +16,7 @@ namespace DentalCare
         public void fillPatientList(DataGridView dataGridView)
         {
             dt = new DataTable();
-            dt = dbConn.getPatientList();
+            dt = dbConn.GetPatientList();
 
             dataGridView.DataSource = dt;
 
@@ -25,20 +25,37 @@ namespace DentalCare
         public void filterPatientList(string num, DataGridView dataGridView)
         {
             dt = new DataTable();
-            dt = dbConn.getPatientByPersonalNumber(num);
+            dt = dbConn.GetPatientByPersonalNumber(num);
 
             dataGridView.DataSource = dt;
         }
 
-
-        public bool checkPatientPersonalNumber(string number)
+        public Client registerNewPatient(
+            Client client, TextBox txtPN, TextBox txtFN, 
+            TextBox txtLN, TextBox txtA, TextBox txtC, 
+            TextBox txtPC, TextBox txtPHN, TextBox txtE, int id
+            )
         {
-            Match match = Regex.Match(number, @"^\d\d\d\d\d\d\d\d-\d\d\d\d$");
-            if (match.Success)
-            {
-                return true;
-            }
-            return false;
+            client.PersonalNumber = txtPN.Text;
+            client.FirstName = txtFN.Text;
+            client.LastName = txtLN.Text;
+            client.Address = txtA.Text;
+            client.City = txtC.Text;
+            client.PostCode = txtPC.Text;
+            client.PhoneNumber = txtPHN.Text;
+            client.Email = txtE.Text;
+            client.DentistID = id;
+
+            return client;
+        }
+
+        public int GetDentistIDForNewPatient(ComboBox cbxNewPatientDentist)
+        {
+            string temp = cbxNewPatientDentist.SelectedItem.ToString();
+            string[] subStrings = temp.Split(' ');
+            int id = Int32.Parse(subStrings[0]);
+
+            return id;
         }
 
     }

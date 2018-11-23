@@ -18,7 +18,6 @@ C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.GenerateRe
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CoreCompileInputs.cache
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.exe
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.pdb
-C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.Login.resources
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare.mdf
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare_log.ldf
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\EntityFramework.dll
@@ -28,7 +27,6 @@ C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\Entity
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CopyComplete
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.DentistView.resources
 C:\Users\Karin\Desktop\KursAdvPro\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
-C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\connections.config
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare.mdf
 C:\Git02\DentalCare\DentalCare\DentalCare\bin\Debug\dbDentalCare_log.ldf
@@ -41,3 +39,5 @@ C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.csproj.CopyComple
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.LoginView.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.AdminView.resources
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
+C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.AdminView.resources
+C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.LoginView.resources

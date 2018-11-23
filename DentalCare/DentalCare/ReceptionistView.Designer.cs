@@ -90,6 +90,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewPatientList = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlViewAllAppointments = new System.Windows.Forms.Panel();           
+            this.btnSearchAppointments = new System.Windows.Forms.Button();
+            this.txtSearchAppointments = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dataGridViewAppointments = new System.Windows.Forms.DataGridView();
             this.pnlNavReceptionist.SuspendLayout();
             this.ReceptionistMenuStrip.SuspendLayout();
             this.pnlAddBooking.SuspendLayout();
@@ -99,6 +104,8 @@
             this.pnlPatientList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlViewAllAppointments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNavReceptionist
@@ -176,6 +183,7 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // NewBookingStripMenuItem
             // 
@@ -394,12 +402,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(341, 26);
+            this.label2.Location = new System.Drawing.Point(320, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 17);
+            this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Date of Birth:";
+            this.label2.Text = "Personal Number:";
             // 
             // pnlNewPatient
             // 
@@ -675,12 +683,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 25);
+            this.label7.Location = new System.Drawing.Point(6, 24);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 17);
+            this.label7.Size = new System.Drawing.Size(122, 17);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Date of Birth:";
+            this.label7.Text = "Personal Number:";
             // 
             // dataGridViewPatientList
             // 
@@ -694,6 +702,62 @@
             this.dataGridViewPatientList.ReadOnly = true;
             this.dataGridViewPatientList.Size = new System.Drawing.Size(671, 352);
             this.dataGridViewPatientList.TabIndex = 0;
+            this.dataGridViewPatientList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPatientList_CellDoubleClick);
+            // 
+            // pnlViewAllAppointments
+            // 
+            this.pnlViewAllAppointments.Controls.Add(this.btnSearchAppointments);
+            this.pnlViewAllAppointments.Controls.Add(this.txtSearchAppointments);
+            this.pnlViewAllAppointments.Controls.Add(this.label20);
+            this.pnlViewAllAppointments.Controls.Add(this.dataGridViewAppointments);
+            this.pnlViewAllAppointments.Location = new System.Drawing.Point(0, 139);
+            this.pnlViewAllAppointments.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlViewAllAppointments.Name = "pnlViewAllAppointments";
+            this.pnlViewAllAppointments.Size = new System.Drawing.Size(873, 481);
+            this.pnlViewAllAppointments.TabIndex = 7;
+            this.pnlViewAllAppointments.Visible = false;
+            // 
+            // btnSearchAppointments
+            // 
+            this.btnSearchAppointments.Location = new System.Drawing.Point(268, 18);
+            this.btnSearchAppointments.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchAppointments.Name = "btnSearchAppointments";
+            this.btnSearchAppointments.Size = new System.Drawing.Size(100, 28);
+            this.btnSearchAppointments.TabIndex = 3;
+            this.btnSearchAppointments.Text = "Search";
+            this.btnSearchAppointments.UseVisualStyleBackColor = true;
+            this.btnSearchAppointments.Click += new System.EventHandler(this.btnSearchAppointments_Click);
+            // 
+            // txtSearchAppointments
+            // 
+            this.txtSearchAppointments.Location = new System.Drawing.Point(127, 21);
+            this.txtSearchAppointments.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchAppointments.Name = "txtSearchAppointments";
+            this.txtSearchAppointments.Size = new System.Drawing.Size(132, 22);
+            this.txtSearchAppointments.TabIndex = 2;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 24);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(122, 17);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Personal Number:";
+            // 
+            // dataGridViewAppointments
+            // 
+            this.dataGridViewAppointments.AllowUserToAddRows = false;
+            this.dataGridViewAppointments.AllowUserToDeleteRows = false;
+            this.dataGridViewAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAppointments.Location = new System.Drawing.Point(13, 96);
+            this.dataGridViewAppointments.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewAppointments.Name = "dataGridViewAppointments";
+            this.dataGridViewAppointments.ReadOnly = true;
+            this.dataGridViewAppointments.Size = new System.Drawing.Size(834, 352);
+            this.dataGridViewAppointments.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -715,6 +779,7 @@
             this.Controls.Add(this.pnlPatientList);
             this.Controls.Add(this.pnlAddBooking);
             this.Controls.Add(this.pnlNewPatient);
+            this.Controls.Add(this.pnlViewAllAppointments);
             this.MainMenuStrip = this.ReceptionistMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReceptionistView";
@@ -736,6 +801,9 @@
             this.pnlPatientList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlViewAllAppointments.ResumeLayout(false);
+            this.pnlViewAllAppointments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -801,9 +869,13 @@
         private System.Windows.Forms.TextBox txtNewPatientPhone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox gbxNewPatientInfo;
-
         public System.Windows.Forms.Label lblReceptionistUser;
         private System.Windows.Forms.Panel pnlNavReceptionist;
+        private System.Windows.Forms.Panel pnlViewAllAppointments;
+        private System.Windows.Forms.Button btnSearchAppointments;
+        private System.Windows.Forms.TextBox txtSearchAppointments;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridView dataGridViewAppointments;
     }
 }
 

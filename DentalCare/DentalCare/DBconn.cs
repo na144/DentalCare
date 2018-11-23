@@ -19,11 +19,7 @@ namespace DentalCare
         SqlDataAdapter adapter;
         SqlConnection myConnection;
 
-
-        //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
-        //string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
-
-        SqlParameter workparameter1;
+		SqlParameter workparameter1;
         SqlParameter workparameter2;
         SqlParameter workparameter3;
         SqlParameter workparameter4;
@@ -34,6 +30,8 @@ namespace DentalCare
         SqlParameter workparameter9;
         SqlParameter workparameter10;
 
+        //string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
+
         SqlParameter parameter1 = new SqlParameter();
         SqlParameter parameter2 = new SqlParameter();
         //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
@@ -42,22 +40,17 @@ namespace DentalCare
         public DBconn()
         {
             myConnection = new SqlConnection();
-            //myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
+            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
 
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
-            /* V- */
+            
             //"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
-            //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
-            /*"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";*/
-
 
             //myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+KfileName+"Integrated Security=True";
 
             //myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
             //myConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git02\DentalCare\DentalCare\DentalCare\dbDentalCare.mdf;Integrated Security=True";
-            ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
-            ///* V- */"Server=Laptop-B0P8Q1VE\\SQLEXPRESS;Database=dbDentalCare;Trusted_Connection=True;";
         }
 
 
@@ -140,7 +133,7 @@ namespace DentalCare
             return dt;
         }
 
-        public DataTable getPatientList()
+        public DataTable GetPatientList()
 
         {
             dt = new DataTable();
@@ -159,7 +152,7 @@ namespace DentalCare
 
         }
 
-        public DataTable getPatientByPersonalNumber(string number)
+        public DataTable GetPatientByPersonalNumber(string number)
         {
             dt = new DataTable();
             adapter = new SqlDataAdapter();
@@ -280,39 +273,31 @@ namespace DentalCare
             myCommand.Parameters.Add(workparameter1);
             workparameter1.Value = client.PersonalNumber;
 
-            //workparameter2 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter2);
             workparameter2.Value = client.FirstName;
 
-            //workparameter3 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter3);
             workparameter3.Value = client.LastName;
 
-            //workparameter4 = myCommand.Parameters.Add();
+
             myCommand.Parameters.Add(workparameter4);
             workparameter4.Value = client.Address;
 
-            //workparameter5 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter5);
             workparameter5.Value = client.City;
 
-            //workparameter6 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter6);
             workparameter6.Value = client.PostCode;
 
-            //workparameter7 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter7);
             workparameter7.Value = client.PhoneNumber;
 
-            //workparameter8 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter8);
             workparameter8.Value = client.Email;
 
-            //workparameter9 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter9);
             workparameter9.Value = client.DentistID;
 
-            //workparameter10 = myCommand.Parameters.Add();
             myCommand.Parameters.Add(workparameter10);
             workparameter10.Direction = ParameterDirection.Output;
 
@@ -350,6 +335,40 @@ namespace DentalCare
             return dt;
         }
 
+        public DataTable GetAppointmentList()
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetAppointmentList";
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+            return dt;
+        }
+
+        public DataTable GetAppointmentByPersonalNumber(string bDate)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+            workparameter1 = new SqlParameter();
+           
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetAppointmentByPersonalNumber";
+            workparameter1 = myCommand.Parameters.Add("@Personalnumber", SqlDbType.VarChar);
+            workparameter1.Value = bDate;
+
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+            return dt;
+        }
     }
 
 

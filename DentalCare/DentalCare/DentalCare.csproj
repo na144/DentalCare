@@ -78,6 +78,7 @@
     <Compile Include="AdminView.Designer.cs">
       <DependentUpon>AdminView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentHandling.cs" />
     <Compile Include="Booking.cs" />
     <Compile Include="CheckIfValid.cs" />
     <Compile Include="Client.cs" />
