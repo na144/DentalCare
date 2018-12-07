@@ -46,6 +46,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPatInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txbEmail = new System.Windows.Forms.TextBox();
             this.txbPersNum = new System.Windows.Forms.TextBox();
             this.txbPhNum = new System.Windows.Forms.TextBox();
             this.txbFname = new System.Windows.Forms.TextBox();
@@ -56,7 +57,7 @@
             this.txbSearchClient = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSearchPatient = new System.Windows.Forms.Button();
-            this.txbEmail = new System.Windows.Forms.TextBox();
+            this.btnTransferPatient = new System.Windows.Forms.Button();
             this.pnlNavDent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.ReceptionistMenuStrip.SuspendLayout();
@@ -203,6 +204,7 @@
             // 
             // pnlPatInfo
             // 
+            this.pnlPatInfo.Controls.Add(this.btnTransferPatient);
             this.pnlPatInfo.Controls.Add(this.panel1);
             this.pnlPatInfo.Controls.Add(this.txbSearchClient);
             this.pnlPatInfo.Controls.Add(this.textBox1);
@@ -227,6 +229,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(219, 237);
             this.panel1.TabIndex = 15;
+            // 
+            // txbEmail
+            // 
+            this.txbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbEmail.Location = new System.Drawing.Point(38, 175);
+            this.txbEmail.Multiline = true;
+            this.txbEmail.Name = "txbEmail";
+            this.txbEmail.Size = new System.Drawing.Size(154, 23);
+            this.txbEmail.TabIndex = 15;
             // 
             // txbPersNum
             // 
@@ -317,14 +328,15 @@
             this.btnSearchPatient.UseVisualStyleBackColor = true;
             this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
             // 
-            // txbEmail
+            // btnTransferPatient
             // 
-            this.txbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbEmail.Location = new System.Drawing.Point(38, 175);
-            this.txbEmail.Multiline = true;
-            this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(154, 23);
-            this.txbEmail.TabIndex = 15;
+            this.btnTransferPatient.Location = new System.Drawing.Point(624, 372);
+            this.btnTransferPatient.Name = "btnTransferPatient";
+            this.btnTransferPatient.Size = new System.Drawing.Size(75, 23);
+            this.btnTransferPatient.TabIndex = 16;
+            this.btnTransferPatient.Text = "Transfer";
+            this.btnTransferPatient.UseVisualStyleBackColor = true;
+            this.btnTransferPatient.Click += new System.EventHandler(this.btnTransferPatient_Click);
             // 
             // ClientInfoView
             // 
@@ -379,5 +391,6 @@
         private System.Windows.Forms.TextBox txbCity;
         private System.Windows.Forms.TextBox txbAdr;
         private System.Windows.Forms.TextBox txbEmail;
+        private System.Windows.Forms.Button btnTransferPatient;
     }
 }

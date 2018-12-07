@@ -369,6 +369,30 @@ namespace DentalCare
             myConnection.Close();
             return dt;
         }
+
+        public DataTable GetClientForTransfer(string personalNumber)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter();
+            myCommand = new SqlCommand();
+            workparameter1 = new SqlParameter();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetClientInfoForTransfer";
+            workparameter1 = myCommand.Parameters.Add("@Personalnumber", SqlDbType.VarChar);
+            workparameter1.Value = personalNumber;
+
+            adapter.SelectCommand = myCommand;
+            adapter.Fill(dt);
+
+            myConnection.Close();
+
+            return dt;
+
+
+
+        }
     }
 
 

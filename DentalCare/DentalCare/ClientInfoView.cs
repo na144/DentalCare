@@ -31,6 +31,12 @@ namespace DentalCare
                 txbCity, txbPcode, txbPhNum, txbEmail);
 
         }
-          
+
+        private void btnTransferPatient_Click(object sender, EventArgs e)
+        {
+            ClientTransfer clientTransfer = new ClientTransfer();
+            string result = clientTransfer.TransferPatient(txbPersNum.Text);
+            MessageBox.Show(result);
+        }
     }
 }

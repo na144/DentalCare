@@ -41,3 +41,4 @@ C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.AdminView.resourc
 C:\Git02\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.ClientInfoView.resources
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.AdminView.resources
 C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\obj\Debug\DentalCare.LoginView.resources
+C:\Users\veron\Desktop\Projekt\DentalCare\DentalCare\DentalCare\bin\Debug\connections.config
