@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DentalCare
 {
-    class CheckIfValid
+    public class CheckIfValid
     {
         public bool checkPersonalNumber(string number)
         {
