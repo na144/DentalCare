@@ -31,16 +31,15 @@ namespace DentalCare
         SqlParameter workparameter10;
 
         //string KfileName = "AttachDbFilename = C:\\USERS\\KARIN\\DESKTOP\\KURSADVPRO\\DENTALCARE\\DENTALCARE\\DENTALCARE\\DBDENTALCARE.MDF;";
-
-        SqlParameter parameter1 = new SqlParameter();
-        SqlParameter parameter2 = new SqlParameter();
+        string LfileName = "AttachDbFilename = C:\\Users\\linav\\Desktop\\AdvProj\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
+        
         //string VfileName = "AttachDbFilename = C:\\Users\\veron\\Desktop\\Projekt\\DentalCare\\DentalCare\\DentalCare\\dbDentalCare.mdf;";
 
-
+        
         public DBconn()
         {
             myConnection = new SqlConnection();
-            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
+            //myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["Name"].ToString();
 
             //myConnection.ConnectionString = "Server=(localdb)\\MSSQLLocalDB;Database=dbDentalCare;Trusted_Connection=True;";
             ///* G- */"Integrated Security=true;database=dbDentalCare;Data Source=LAPTOP-7DKPE6B0\\SQLEXPRESS14";
@@ -51,6 +50,8 @@ namespace DentalCare
 
             //myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;"+VfileName+"Integrated Security=True";
             //myConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git02\DentalCare\DentalCare\DentalCare\dbDentalCare.mdf;Integrated Security=True";
+
+            myConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" + LfileName + "Integrated Security=True";
         }
 
 
@@ -173,37 +174,101 @@ namespace DentalCare
 
         }
 
-        public bool InsertNewBookingToDB(Booking booking)
+        public void getClientInfo(TextBox txb, TextBox txb2, TextBox txb3, TextBox txtEmployeeID, TextBox txtClientID)
+        {
+            String conString = myConnection.ConnectionString;
+            myConnection = new SqlConnection(conString);
+            String procedName = "spGetClientInfo";
+            myConnection.Open();
+            myCommand = new SqlCommand(procedName, myConnection);
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("fldPersonalnumber", (txb.Text));
+            SqlDataReader dr;
+            dr = myCommand.ExecuteReader();
+
+            if (dr.Read())
+            {
+                txb2.Text = dr["fName"].ToString();
+                txb3.Text = dr["lName"].ToString();
+                txtEmployeeID.Text = dr["eID"].ToString();
+                txtClientID.Text = dr["cID"].ToString();
+            }
+            else
+            {
+                txb2.Text = "";
+                txb3.Text = "";
+                txtEmployeeID.Text = "";
+                txtClientID.Text = "";
+            }
+            myConnection.Close();
+        }
+
+        public void CreateNewBooking(TextBox txtDate, TextBox txtClientID, TextBox txtDentist, TextBox txtExaminationType, TextBox txtNotes, TextBox txtTime)
+        {
+            Booking booking = new Booking();
+            booking.Date = txtDate.Text;
+            booking.ClientID = Convert.ToInt32(txtClientID.Text);
+            booking.Dentist= Convert.ToInt32(txtDentist.Text);
+            booking.ExaminationType = txtExaminationType.Text;
+            booking.Notes = txtNotes.Text;
+            booking.Time = txtTime.Text;
+            Boolean answer = InsertNewBooking(booking);
+            if (answer == true)
+            {
+                txtDate.ResetText();
+                txtClientID.ResetText();
+                txtDentist.ResetText();
+                txtExaminationType.ResetText();
+                txtNotes.ResetText();
+                txtTime.ResetText();
+                MessageBox.Show("New booking is inserted.");
+            }
+            else
+            {
+                MessageBox.Show("Invalid input.");
+            }
+        }
+
+        public bool InsertNewBooking(Booking booking)
         {
             myCommand = new SqlCommand();
+            workparameter1 = new SqlParameter("@Date", SqlDbType.VarChar);
+            workparameter2 = new SqlParameter();
+            workparameter3 = new SqlParameter();
+            workparameter4 = new SqlParameter();
+            workparameter5 = new SqlParameter();
+            workparameter6 = new SqlParameter();
+            workparameter7 = new SqlParameter();
+
             myCommand.Connection = myConnection;
             myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.CommandText = "spRegNewBooking";
 
-            SqlParameter workparameter1 = new SqlParameter();
-            SqlParameter workparameter2 = new SqlParameter();
-            SqlParameter workparameter3 = new SqlParameter();
-            SqlParameter workparameter4 = new SqlParameter();
-            SqlParameter workparameter5 = new SqlParameter();
+            workparameter1 = myCommand.Parameters.Add("@Date", SqlDbType.VarChar);
+            workparameter1.Value = booking.Date;
 
-            workparameter1 = myCommand.Parameters.Add("@AppointmentDate", SqlDbType.VarChar);
-            workparameter1.Value = booking.AppointmentDate;
+            workparameter2 = myCommand.Parameters.Add("@ClientID", SqlDbType.Int);
+            workparameter2.Value = Convert.ToInt32(booking.ClientID);
 
-            workparameter2 = myCommand.Parameters.Add("@ExaminationType", SqlDbType.VarChar);
-            workparameter2.Value = booking.ExaminationType;
+            workparameter3 = myCommand.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            workparameter3.Value = Convert.ToInt32(booking.Dentist);
 
-            workparameter3 = myCommand.Parameters.Add("@Dentist", SqlDbType.VarChar);
-            workparameter3.Value = booking.Dentist;
+            workparameter4 = myCommand.Parameters.Add("@ExaminationType", SqlDbType.VarChar);
+            workparameter4.Value = booking.ExaminationType;
 
-            workparameter4 = myCommand.Parameters.Add("@AdditionalNotes", SqlDbType.VarChar);
-            workparameter4.Value = booking.Additionalnotes;
+            workparameter5 = myCommand.Parameters.Add("@Notes", SqlDbType.VarChar);
+            workparameter5.Value = booking.Notes;
 
-            workparameter5 = myCommand.Parameters.Add("@AntalRader", SqlDbType.Int);
-            workparameter5.Direction = ParameterDirection.Output;
+            workparameter6 = myCommand.Parameters.Add("@Time", SqlDbType.VarChar);
+            workparameter6.Value = booking.Time;
+
+            workparameter7 = myCommand.Parameters.Add("@Rows", SqlDbType.Int);
+            workparameter7.Direction = ParameterDirection.Output;
 
             myConnection.Open();
             myCommand.ExecuteNonQuery();
-            int svar = Convert.ToInt32(workparameter5.SqlValue.ToString());
+            int svar = Convert.ToInt32(workparameter7.SqlValue.ToString());
+
             myConnection.Close();
 
             if (svar == 1)
@@ -214,7 +279,7 @@ namespace DentalCare
             {
                 return false;
             }
-
+           
         }
 
 
@@ -278,7 +343,7 @@ namespace DentalCare
 
             myCommand.Parameters.Add(workparameter3);
             workparameter3.Value = client.LastName;
-
+ 
 
             myCommand.Parameters.Add(workparameter4);
             workparameter4.Value = client.Address;
@@ -368,6 +433,36 @@ namespace DentalCare
 
             myConnection.Close();
             return dt;
+        }
+
+
+        public void getPatientInfo(TextBox txb, TextBox txb2, TextBox txb3, TextBox txtClientID, TextBox txtDentist)
+        {
+            String conString = myConnection.ConnectionString;
+            myConnection = new SqlConnection(conString);
+            String procedName = "spGetPatientInfo";
+            myConnection.Open();
+            myCommand = new SqlCommand(procedName, myConnection);
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("fldPersonalnumber", (txb.Text));
+            SqlDataReader dr;
+            dr = myCommand.ExecuteReader();
+
+            if (dr.Read())
+            {
+                txb2.Text = dr["fName"].ToString();
+                txb3.Text = dr["lName"].ToString();
+                txtDentist.Text = dr["eID"].ToString();
+                txtClientID.Text = dr["cID"].ToString();
+            }
+            else
+            {
+                txb2.Text = "";
+                txb3.Text = "";
+                txtDentist.Text = "";
+                txtClientID.Text = "";
+            }
+            myConnection.Close();
         }
     }
 

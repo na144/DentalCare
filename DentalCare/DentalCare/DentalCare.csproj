@@ -93,6 +93,7 @@
     <Compile Include="Hasher.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="IHasher.cs" />
+    <Compile Include="CheckDate.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PatientHandling.cs" />
     <Compile Include="ClientInfoView.cs">

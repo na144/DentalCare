@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlNavReceptionist = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblReceptionistUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ReceptionistMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -46,18 +47,17 @@
             this.pnlAddBooking = new System.Windows.Forms.Panel();
             this.gbxMakeBooking = new System.Windows.Forms.GroupBox();
             this.btnSubmitMakeBooking = new System.Windows.Forms.Button();
-            this.txtNotesMakeBooking = new System.Windows.Forms.TextBox();
+            this.txtNotes = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtExaminationType = new System.Windows.Forms.TextBox();
-            this.cboxAppointmentDate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDentist = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblFirstNameMakeBooking = new System.Windows.Forms.Label();
             this.lblLastNameMakeBooking = new System.Windows.Forms.Label();
             this.btnSearchPatientMakeBooking = new System.Windows.Forms.Button();
-            this.txtSearchPatientMakeBooking = new System.Windows.Forms.TextBox();
+            this.txb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlNewPatient = new System.Windows.Forms.Panel();
             this.gbxNewPatientInfo = new System.Windows.Forms.GroupBox();
@@ -89,13 +89,20 @@
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewPatientList = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlViewAllAppointments = new System.Windows.Forms.Panel();           
+            this.pnlViewAllAppointments = new System.Windows.Forms.Panel();
             this.btnSearchAppointments = new System.Windows.Forms.Button();
             this.txtSearchAppointments = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dataGridViewAppointments = new System.Windows.Forms.DataGridView();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.txtClientID = new System.Windows.Forms.TextBox();
+            this.lblClientname = new System.Windows.Forms.Label();
+            this.txb3 = new System.Windows.Forms.TextBox();
+            this.txb2 = new System.Windows.Forms.TextBox();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.pnlNavReceptionist.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ReceptionistMenuStrip.SuspendLayout();
             this.pnlAddBooking.SuspendLayout();
             this.gbxMakeBooking.SuspendLayout();
@@ -103,7 +110,6 @@
             this.gbxNewPatientInfo.SuspendLayout();
             this.pnlPatientList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlViewAllAppointments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +126,17 @@
             this.pnlNavReceptionist.Name = "pnlNavReceptionist";
             this.pnlNavReceptionist.Size = new System.Drawing.Size(877, 137);
             this.pnlNavReceptionist.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DentalCare.Properties.Resources.Logo7;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // lblReceptionistUser
             // 
@@ -242,11 +259,15 @@
             // 
             // pnlAddBooking
             // 
+            this.pnlAddBooking.Controls.Add(this.txtClientID);
+            this.pnlAddBooking.Controls.Add(this.lblClientname);
+            this.pnlAddBooking.Controls.Add(this.txb3);
+            this.pnlAddBooking.Controls.Add(this.txb2);
             this.pnlAddBooking.Controls.Add(this.gbxMakeBooking);
             this.pnlAddBooking.Controls.Add(this.lblFirstNameMakeBooking);
             this.pnlAddBooking.Controls.Add(this.lblLastNameMakeBooking);
             this.pnlAddBooking.Controls.Add(this.btnSearchPatientMakeBooking);
-            this.pnlAddBooking.Controls.Add(this.txtSearchPatientMakeBooking);
+            this.pnlAddBooking.Controls.Add(this.txb);
             this.pnlAddBooking.Controls.Add(this.label2);
             this.pnlAddBooking.Location = new System.Drawing.Point(0, 138);
             this.pnlAddBooking.Margin = new System.Windows.Forms.Padding(4);
@@ -257,12 +278,14 @@
             // 
             // gbxMakeBooking
             // 
+            this.gbxMakeBooking.Controls.Add(this.txtDate);
+            this.gbxMakeBooking.Controls.Add(this.lblTime);
+            this.gbxMakeBooking.Controls.Add(this.txtTime);
             this.gbxMakeBooking.Controls.Add(this.btnSubmitMakeBooking);
-            this.gbxMakeBooking.Controls.Add(this.txtNotesMakeBooking);
+            this.gbxMakeBooking.Controls.Add(this.txtNotes);
             this.gbxMakeBooking.Controls.Add(this.label6);
             this.gbxMakeBooking.Controls.Add(this.label5);
             this.gbxMakeBooking.Controls.Add(this.txtExaminationType);
-            this.gbxMakeBooking.Controls.Add(this.cboxAppointmentDate);
             this.gbxMakeBooking.Controls.Add(this.label4);
             this.gbxMakeBooking.Controls.Add(this.txtDentist);
             this.gbxMakeBooking.Controls.Add(this.label3);
@@ -285,14 +308,14 @@
             this.btnSubmitMakeBooking.UseVisualStyleBackColor = true;
             this.btnSubmitMakeBooking.Click += new System.EventHandler(this.btnSubmitMakeBooking_Click);
             // 
-            // txtNotesMakeBooking
+            // txtNotes
             // 
-            this.txtNotesMakeBooking.Location = new System.Drawing.Point(405, 54);
-            this.txtNotesMakeBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNotesMakeBooking.Multiline = true;
-            this.txtNotesMakeBooking.Name = "txtNotesMakeBooking";
-            this.txtNotesMakeBooking.Size = new System.Drawing.Size(380, 200);
-            this.txtNotesMakeBooking.TabIndex = 13;
+            this.txtNotes.Location = new System.Drawing.Point(405, 54);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(380, 200);
+            this.txtNotes.TabIndex = 13;
             // 
             // label6
             // 
@@ -321,16 +344,6 @@
             this.txtExaminationType.Name = "txtExaminationType";
             this.txtExaminationType.Size = new System.Drawing.Size(171, 22);
             this.txtExaminationType.TabIndex = 10;
-            // 
-            // cboxAppointmentDate
-            // 
-            this.cboxAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cboxAppointmentDate.FormattingEnabled = true;
-            this.cboxAppointmentDate.Location = new System.Drawing.Point(152, 68);
-            this.cboxAppointmentDate.Margin = new System.Windows.Forms.Padding(4);
-            this.cboxAppointmentDate.Name = "cboxAppointmentDate";
-            this.cboxAppointmentDate.Size = new System.Drawing.Size(160, 24);
-            this.cboxAppointmentDate.TabIndex = 9;
             // 
             // label4
             // 
@@ -391,13 +404,13 @@
             this.btnSearchPatientMakeBooking.UseVisualStyleBackColor = true;
             this.btnSearchPatientMakeBooking.Click += new System.EventHandler(this.btnSearchPatientMakeBooking_Click);
             // 
-            // txtSearchPatientMakeBooking
+            // txb
             // 
-            this.txtSearchPatientMakeBooking.Location = new System.Drawing.Point(441, 16);
-            this.txtSearchPatientMakeBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearchPatientMakeBooking.Name = "txtSearchPatientMakeBooking";
-            this.txtSearchPatientMakeBooking.Size = new System.Drawing.Size(171, 22);
-            this.txtSearchPatientMakeBooking.TabIndex = 1;
+            this.txb.Location = new System.Drawing.Point(441, 16);
+            this.txb.Margin = new System.Windows.Forms.Padding(4);
+            this.txb.Name = "txb";
+            this.txb.Size = new System.Drawing.Size(171, 22);
+            this.txb.TabIndex = 1;
             // 
             // label2
             // 
@@ -759,16 +772,59 @@
             this.dataGridViewAppointments.Size = new System.Drawing.Size(834, 352);
             this.dataGridViewAppointments.TabIndex = 0;
             // 
-            // pictureBox1
+            // lblTime
             // 
-            this.pictureBox1.Image = global::DentalCare.Properties.Resources.Logo7;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(88, 160);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(43, 17);
+            this.lblTime.TabIndex = 18;
+            this.lblTime.Text = "Time:";
+            // 
+            // txtTime
+            // 
+            this.txtTime.Location = new System.Drawing.Point(152, 160);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(129, 22);
+            this.txtTime.TabIndex = 17;
+            // 
+            // txtClientID
+            // 
+            this.txtClientID.Location = new System.Drawing.Point(708, 54);
+            this.txtClientID.Name = "txtClientID";
+            this.txtClientID.Size = new System.Drawing.Size(89, 22);
+            this.txtClientID.TabIndex = 21;
+            // 
+            // lblClientname
+            // 
+            this.lblClientname.AutoSize = true;
+            this.lblClientname.Location = new System.Drawing.Point(638, 54);
+            this.lblClientname.Name = "lblClientname";
+            this.lblClientname.Size = new System.Drawing.Size(64, 17);
+            this.lblClientname.TabIndex = 20;
+            this.lblClientname.Text = "Client ID:";
+            // 
+            // txb3
+            // 
+            this.txb3.Location = new System.Drawing.Point(708, 33);
+            this.txb3.Name = "txb3";
+            this.txb3.Size = new System.Drawing.Size(89, 22);
+            this.txb3.TabIndex = 19;
+            // 
+            // txb2
+            // 
+            this.txb2.Location = new System.Drawing.Point(708, 13);
+            this.txb2.Name = "txb2";
+            this.txb2.Size = new System.Drawing.Size(89, 22);
+            this.txb2.TabIndex = 18;
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(152, 71);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(171, 22);
+            this.txtDate.TabIndex = 19;
             // 
             // ReceptionistView
             // 
@@ -776,8 +832,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 624);
             this.Controls.Add(this.pnlNavReceptionist);
-            this.Controls.Add(this.pnlPatientList);
             this.Controls.Add(this.pnlAddBooking);
+            this.Controls.Add(this.pnlPatientList);
             this.Controls.Add(this.pnlNewPatient);
             this.Controls.Add(this.pnlViewAllAppointments);
             this.MainMenuStrip = this.ReceptionistMenuStrip;
@@ -787,6 +843,7 @@
             this.Load += new System.EventHandler(this.ReceptionistView_Load);
             this.pnlNavReceptionist.ResumeLayout(false);
             this.pnlNavReceptionist.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ReceptionistMenuStrip.ResumeLayout(false);
             this.ReceptionistMenuStrip.PerformLayout();
             this.pnlAddBooking.ResumeLayout(false);
@@ -800,7 +857,6 @@
             this.pnlPatientList.ResumeLayout(false);
             this.pnlPatientList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatientList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlViewAllAppointments.ResumeLayout(false);
             this.pnlViewAllAppointments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).EndInit();
@@ -827,7 +883,7 @@
         private System.Windows.Forms.Label lblFirstNameMakeBooking;
         private System.Windows.Forms.Label lblLastNameMakeBooking;
         private System.Windows.Forms.Button btnSearchPatientMakeBooking;
-        private System.Windows.Forms.TextBox txtSearchPatientMakeBooking;
+        private System.Windows.Forms.TextBox txb;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Panel pnlPatientList;
@@ -838,11 +894,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridViewPatientList;
         private System.Windows.Forms.Button btnSubmitMakeBooking;
-        private System.Windows.Forms.TextBox txtNotesMakeBooking;
+        private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtExaminationType;
-        private System.Windows.Forms.ComboBox cboxAppointmentDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem addNewPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seePatientListToolStripMenuItem;
@@ -876,6 +931,13 @@
         private System.Windows.Forms.TextBox txtSearchAppointments;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridView dataGridViewAppointments;
+        private System.Windows.Forms.TextBox txtClientID;
+        private System.Windows.Forms.Label lblClientname;
+        private System.Windows.Forms.TextBox txb3;
+        private System.Windows.Forms.TextBox txb2;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.TextBox txtDate;
     }
 }
 

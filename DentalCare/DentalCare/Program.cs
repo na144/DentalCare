@@ -21,7 +21,7 @@ namespace DentalCare
             //Application.Run(new DentistView());
 
             //Application.Run(new LoginView());
-            //Application.Run(new ReceptionistView());
+            Application.Run(new ReceptionistView());
             //Application.Run(new AdminView());
         }
     }

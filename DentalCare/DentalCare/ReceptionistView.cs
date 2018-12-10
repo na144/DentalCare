@@ -17,6 +17,7 @@ namespace DentalCare
         PatientHandling patientHandling = new PatientHandling();
         AppointmentHandling appointmentHandling = new AppointmentHandling();
         CheckIfValid checkIfValid = new CheckIfValid();
+        CheckDate checkDate = new CheckDate();
 
         public ReceptionistView()
         {
@@ -67,31 +68,12 @@ namespace DentalCare
 
         private void btnSearchPatientMakeBooking_Click(object sender, EventArgs e)
         {
-
-
+            dbConn.getPatientInfo(txb, txb2, txb3, txtClientID, txtDentist);
         }
 
         private void btnSubmitMakeBooking_Click(object sender, EventArgs e)
         {
-            Booking booking = new Booking();
-            booking.Dentist = txtDentist.Text;
-            booking.AppointmentDate = txtNotesMakeBooking.Text;
-            booking.ExaminationType = txtExaminationType.Text;
-
-            booking.Additionalnotes = txtNotesMakeBooking.Text;
-            Boolean answer = dbConn.InsertNewBookingToDB(booking);
-            if (answer == true)
-            {
-                MessageBox.Show("New booking is inserted.");
-                cboxAppointmentDate.Items.Clear();
-                txtExaminationType.ResetText();
-                txtDentist.ResetText();
-                txtNotesMakeBooking.ResetText();
-            }
-            else
-            {
-                MessageBox.Show("Invalid input.");
-            }
+            dbConn.CreateNewBooking(txtDate, txtClientID, txtDentist, txtExaminationType, txtNotes, txtTime);
         }
 
         private void btnSearchPatient_Click(object sender, EventArgs e)
