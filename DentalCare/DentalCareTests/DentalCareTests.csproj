@@ -47,12 +47,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkClientPersNumTest.cs" />
     <Compile Include="CheckDateTest.cs" />
     <Compile Include="EncryptionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CheckIfValidTest.cs" />
+    <Compile Include="checkClienPersTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

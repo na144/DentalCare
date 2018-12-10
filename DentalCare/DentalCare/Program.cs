@@ -17,7 +17,7 @@ namespace DentalCare
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new ClientInfoView());
+            Application.Run(new ClientInfoView());
             //Application.Run(new DentistView());
 
             //Application.Run(new LoginView());
