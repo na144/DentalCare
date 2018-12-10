@@ -17,6 +17,7 @@ namespace DentalCare
         PatientHandling patientHandling = new PatientHandling();
         AppointmentHandling appointmentHandling = new AppointmentHandling();
         CheckIfValid checkIfValid = new CheckIfValid();
+        CheckDate checkDate = new CheckDate();
 
         public ReceptionistView()
         {
