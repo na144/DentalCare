@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="AppointmentHandling.cs" />
     <Compile Include="Booking.cs" />
+    <Compile Include="CheckDate.cs" />
     <Compile Include="CheckIfValid.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DBconn.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="Hasher.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="IHasher.cs" />
-    <Compile Include="CheckDate.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PatientHandling.cs" />
     <Compile Include="ClientInfoView.cs">
