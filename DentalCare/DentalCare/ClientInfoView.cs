@@ -31,10 +31,9 @@ namespace DentalCare
                 txbCity, txbPcode, txbPhNum, txbEmail);
 
         }
-        public string getClientPersNum(string clientPersNum, string persPattern)
+        public string getClientPersNum(string clientPersNum)
         {
-
-            persPattern = "^\\d{8}-\\{4}$";
+            string persPattern = "^\\d{8}-\\{4}$";
            
 
             if (System.Text.RegularExpressions.Regex.IsMatch(clientPersNum, persPattern))

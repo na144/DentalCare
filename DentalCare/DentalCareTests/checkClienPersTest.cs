@@ -11,17 +11,28 @@ namespace DentalCareTests
         //arrange
         ClientInfoView testView = new ClientInfoView();
         string validPNum = "12345678-1234";
-        string pNumberPattern = "^\\d{8}-\\{4}$";
+        string invalidPNum = "123456781234";
+        //  string pNumberPattern = "^\\d{8}-\\{4}$";
 
 
         [TestMethod]
         public void valid_PersNum()
         {
             //act
-            string expected = testView.getClientPersNum(validPNum, pNumberPattern);
+            string expected = testView.getClientPersNum(validPNum);
 
-            //asser
+            //assert
             Assert.AreEqual(validPNum, expected);
+        }
+
+         [TestMethod]
+        public void invalid_PersNum()
+        {
+            //act
+            string expected = testView.getClientPersNum(invalidPNum);
+
+            //assert
+            Assert.AreEqual(invalidPNum, expected);
         }
 /*
         [TestMethod]
