@@ -33,19 +33,22 @@ namespace DentalCare
         }
         public string getClientPersNum(string clientPersNum)
         {
-            string persPattern = "^\\d{8}-\\{4}$";
-           
+            string persPattern = "^\\d{8}-\\d{4}$";
+            string invalidPnum = "Invalid - only digits available";
+
 
             if (System.Text.RegularExpressions.Regex.IsMatch(clientPersNum, persPattern))
             {
                 Console.WriteLine("Valid personal number");
-            }
-            else
-            {
-                Console.WriteLine("Invalid - only digits available");
+                return clientPersNum;
             }
 
-            return clientPersNum;
+            else
+            {
+                return invalidPnum;
+            }
+
+            
         }
     }
 }
