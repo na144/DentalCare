@@ -31,21 +31,22 @@ namespace DentalCare
                 txbCity, txbPcode, txbPhNum, txbEmail);
 
         }
-        public string getClientPersNum(string clientPersNum)
+        public bool isPersNumValid(string clientPersNum)
         {
             string persPattern = "^\\d{8}-\\d{4}$";
-            string invalidPnum = "Invalid - only digits available";
+            
 
 
             if (System.Text.RegularExpressions.Regex.IsMatch(clientPersNum, persPattern))
             {
                 Console.WriteLine("Valid personal number");
-                return clientPersNum;
+                return true;
             }
 
             else
             {
-                return invalidPnum;
+                Console.WriteLine("Invalid personal number");
+                return false;
             }
 
             

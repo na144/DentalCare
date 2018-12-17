@@ -19,20 +19,21 @@ namespace DentalCareTests
         public void valid_PersNum()
         {
             //act
-            string expected = testView.getClientPersNum(validPNum);
+            bool valid = testView.isPersNumValid(validPNum);
 
             //assert
-            Assert.AreEqual(validPNum, expected);
+            Assert.IsTrue(valid);
         }
 
          [TestMethod]
         public void invalid_PersNum()
         {
             //act
-            string expected = testView.getClientPersNum(invalidPNum);
+            bool notValid = testView.isPersNumValid(invalidPNum);
 
             //assert
-            Assert.AreNotEqual(invalidPNum, expected);
+            Assert.IsFalse(notValid);
+        //    Assert.AreNotEqual(invalidPNum, unexpected);
         }
 
     }
